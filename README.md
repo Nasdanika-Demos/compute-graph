@@ -6,4 +6,4 @@ TODO:
 * Ecore model - documented, published
 * Map the parse diagram to the model
 * Architecture diagram (value/node/processor) - map to the architecture model, publish
-* Multiple processors - synchronous, reactive, completion stage
+* Multiple processors - synchronous, reactive, completion stage, code generator - StringBuilder, Source (Java)
