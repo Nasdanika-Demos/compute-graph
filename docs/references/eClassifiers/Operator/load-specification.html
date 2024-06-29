@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="EN">
+  <head>
+    <title>Load specification</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.16/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css">
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.16/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+
+<script src="../../../search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['action-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+</head>
+  <body>
+    <div class="container-fluid nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Demos" data-nsd-label-uuid="0896c3bf-22af-489d-a232-4bb2adff375a" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon">Nasdanika Demos</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="../../../search.html" data-nsd-label-uuid="e3ecb8fc-ac00-4807-848e-e215c2dc47e9" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
+            </li>
+            <li class="nav-item">
+              <a href="../../../glossary.html" data-nsd-label-uuid="d21024b9-b051-4c39-8f0a-fb573c18d042" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="../../../index.html" title="A model of operands and operators" data-nsd-label-uuid="f8bb3cfc-7697-4938-85d1-7d873e60a585" class="navbar-brand">
+              <img src="https://img.icons8.com/nolan/64/apple-calculator.png" class="nsd-app-label-icon">Compute Model</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_ey" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_ey" class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="../../../classifiers.html" data-nsd-label-uuid="b79cb153-2a84-42ff-9d81-c09ca4c7af96" class="nav-link">Classifiers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="../../../diagram.html" data-nsd-label-uuid="faffb760-8b37-45ee-b5df-8bfc510ff292" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                </li>
+                <li class="nav-item">
+                  </li><li data-nsd-label-uuid="4f004af4-88be-430a-a2e1-7b73465ffdec" class="dropdown">
+                    <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                      <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</a>
+                    <div class="dropdown-menu">
+                      <a href="../../../default-graph.html" data-nsd-label-uuid="50a85e0a-9a14-4948-8d81-26f39933bd85" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph.html" data-nsd-label-uuid="87b86cc2-e88b-42b0-adcb-17b531a8f93c" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph.html" data-nsd-label-uuid="64696966-846d-4e6a-98a6-ce4a2ef798e2" class="dropdown-item">Force Graph</a>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
+                      <a href="../../../default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="26183172-2716-46cf-8c67-feff5b749687" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="9254002e-8015-4e6a-89c8-0c6a8f6696e1" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="acf7d428-4f75-4589-91ee-270b79d597b0" class="dropdown-item">Force Graph</a>
+                    </div>
+                  </li>
+                
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="list-group list-group-flush">
+            <a href="../Assignment/index.html" title="Assigns the value of its right-hand operand to its left-hand operand" data-nsd-label-uuid="67d868b5-2ccd-4a68-af01-0d97145d2893" class="list-group-item list-group-action"><span class="fas fa-equals nsd-app-label-icon"></span>Assignment</a>
+            <a href="../Literal/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="2a0c49e2-faca-4749-98a6-3391dd4622ee" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Literal</a>
+            <a href="../Multiplication/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="9bdce9ff-cdeb-4304-b46e-69547fd2fd93" class="list-group-item list-group-action"><span class="fas fa-asterisk nsd-app-label-icon"></span>Multiplication</a>
+            <a href="../Operand/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="f0bb2e83-ef42-47a9-8bb4-6932c7cc1993" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Operand</a>
+            <a href="index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="2d6fde7d-7c13-411a-bd75-a51e5adaa5b8" class="list-group-item list-group-action active">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Operator</a>
+            <a href="../Reference/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="9dc73e75-614a-4518-8193-c1c8ab3d0380" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Reference</a>
+            <a href="../Variable/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="f4a39209-b7bb-4eb1-8a06-4af72239b56a" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Variable</a>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="715eb380-e462-4566-8042-6dd44e87927e" data-nsd-action-uris="uuid:715eb380-e462-4566-8042-6dd44e87927e" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="2d6fde7d-7c13-411a-bd75-a51e5adaa5b8">
+                        <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Operator</a>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="715eb380-e462-4566-8042-6dd44e87927e">Load specification</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <h1><span data-nsd-label-uuid="715eb380-e462-4566-8042-6dd44e87927e" class="nsd-app-content-panel-title">Load specification</span>
+                </h1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div class="markdown-body"><p>Some <code>documentation</code>:</p>
+<pre><code class="language-yaml">key: value
+</code></pre>
+</div>
+<div>
+  <div id="load-specification-table">
+    <nsd-table :columns="[{&quot;visible&quot;:true,&quot;sortable&quot;:true,&quot;label&quot;:&quot;Key&quot;,&quot;key&quot;:&quot;key&quot;},{&quot;visible&quot;:true,&quot;sortable&quot;:true,&quot;label&quot;:&quot;Type&quot;,&quot;key&quot;:&quot;type&quot;},{&quot;key&quot;:&quot;multiplicity&quot;,&quot;visible&quot;:true,&quot;label&quot;:&quot;Multiplicity&quot;},{&quot;key&quot;:&quot;homogeneous&quot;,&quot;visible&quot;:true,&quot;label&quot;:&quot;Homogeneous&quot;},{&quot;key&quot;:&quot;strict-containment&quot;,&quot;visible&quot;:true,&quot;label&quot;:&quot;Strict Containment&quot;},{&quot;visible&quot;:true,&quot;sortable&quot;:true,&quot;label&quot;:&quot;Exclusive With&quot;,&quot;key&quot;:&quot;exclusive&quot;},{&quot;key&quot;:&quot;description&quot;,&quot;visible&quot;:true,&quot;label&quot;:&quot;Description&quot;}]" :items="[{&quot;multiplicity&quot;:&quot;<B>0..*<\/B>&quot;,&quot;description&quot;:&quot;Description how to load family members. The description is shown in the load specification table. Details like snippets shall go to documentation&quot;,&quot;type&quot;:&quot;<!-- Operand--> \r\n<a href=\&quot;../../../../Operand/index.html\&quot; title=\&quot;In this model a person is an abstract supertype of Man and Woman\&quot;>\r\n  <img src=\&quot;https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif\&quot; class=\&quot;nsd-app-label-icon\&quot;/>Operand<\/a>&quot;,&quot;key&quot;:&quot;<a href=\&quot;references/eStructuralFeatures/operands/load-specification.html\&quot;>operands<\/a>&quot;}]" config-key="-1181443946-Operator-load-specification" />
+  </div>
+  <script>new Vue({ el: '#load-specification-table' });</script>
+</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika-Demos/compute-graph" data-nsd-label-uuid="d8dd47af-27ae-448c-9e6e-2f169e6fa5eb" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

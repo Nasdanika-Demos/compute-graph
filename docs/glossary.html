@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="EN">
+  <head>
+    <title>Glossary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.16/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.css">
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.16/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.23.0/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+
+<script src="search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['action-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+</head>
+  <body>
+    <div class="container-fluid nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Demos" data-nsd-label-uuid="0896c3bf-22af-489d-a232-4bb2adff375a" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon">Nasdanika Demos</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="search.html" data-nsd-label-uuid="e3ecb8fc-ac00-4807-848e-e215c2dc47e9" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
+            </li>
+            <li class="nav-item"><span data-nsd-label-uuid="d21024b9-b051-4c39-8f0a-fb573c18d042" class="navbar-text"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="index.html" title="A model of operands and operators" data-nsd-label-uuid="f8bb3cfc-7697-4938-85d1-7d873e60a585" class="navbar-brand">
+              <img src="https://img.icons8.com/nolan/64/apple-calculator.png" class="nsd-app-label-icon">Compute Model</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_f6" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_f6" class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="classifiers.html" data-nsd-label-uuid="b79cb153-2a84-42ff-9d81-c09ca4c7af96" class="nav-link">Classifiers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="diagram.html" data-nsd-label-uuid="faffb760-8b37-45ee-b5df-8bfc510ff292" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                </li>
+                <li class="nav-item">
+                  </li><li data-nsd-label-uuid="4f004af4-88be-430a-a2e1-7b73465ffdec" class="dropdown">
+                    <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                      <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</a>
+                    <div class="dropdown-menu">
+                      <a href="default-graph.html" data-nsd-label-uuid="50a85e0a-9a14-4948-8d81-26f39933bd85" class="dropdown-item">Default Graph</a>
+                      <a href="circular-layout-graph.html" data-nsd-label-uuid="87b86cc2-e88b-42b0-adcb-17b531a8f93c" class="dropdown-item">Circular Graph</a>
+                      <a href="force-layout-graph.html" data-nsd-label-uuid="64696966-846d-4e6a-98a6-ce4a2ef798e2" class="dropdown-item">Force Graph</a>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
+                      <a href="default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="26183172-2716-46cf-8c67-feff5b749687" class="dropdown-item">Default Graph</a>
+                      <a href="circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="9254002e-8015-4e6a-89c8-0c6a8f6696e1" class="dropdown-item">Circular Graph</a>
+                      <a href="force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="acf7d428-4f75-4589-91ee-270b79d597b0" class="dropdown-item">Force Graph</a>
+                    </div>
+                  </li>
+                
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="list-group list-group-flush">
+            <a href="references/eClassifiers/Assignment/index.html" title="Assigns the value of its right-hand operand to its left-hand operand" data-nsd-label-uuid="67d868b5-2ccd-4a68-af01-0d97145d2893" class="list-group-item list-group-action"><span class="fas fa-equals nsd-app-label-icon"></span>Assignment</a>
+            <a href="references/eClassifiers/Literal/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="2a0c49e2-faca-4749-98a6-3391dd4622ee" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Literal</a>
+            <a href="references/eClassifiers/Multiplication/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="9bdce9ff-cdeb-4304-b46e-69547fd2fd93" class="list-group-item list-group-action"><span class="fas fa-asterisk nsd-app-label-icon"></span>Multiplication</a>
+            <a href="references/eClassifiers/Operand/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="f0bb2e83-ef42-47a9-8bb4-6932c7cc1993" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Operand</a>
+            <a href="references/eClassifiers/Operator/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="2d6fde7d-7c13-411a-bd75-a51e5adaa5b8" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Operator</a>
+            <a href="references/eClassifiers/Reference/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="9dc73e75-614a-4518-8193-c1c8ab3d0380" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Reference</a>
+            <a href="references/eClassifiers/Variable/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="f4a39209-b7bb-4eb1-8a06-4af72239b56a" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Variable</a>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="d21024b9-b051-4c39-8f0a-fb573c18d042" data-nsd-action-uris="uuid:d21024b9-b051-4c39-8f0a-fb573c18d042" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <h1><span data-nsd-label-uuid="d21024b9-b051-4c39-8f0a-fb573c18d042" class="nsd-app-content-panel-title"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</span>
+                </h1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col">     	<div id="semantic-info-app" class="container-fluid">
+     		<div class="row">
+     			<div class="col">
+					<b-form-group label="Filter" label-for="filter-input" label-cols-sm="auto" label-align-sm="right" label-size="sm" class="mb-0" description="You can use wildcards, e.g. 'foo*' or 'f*o'; title or content fields, e.g. 'title:foo* bar'; boosts, e.g. 'foo^10 bar'; fuzzy matches, e.g. 'foo~1'; and term presence, e.g. '+foo bar -baz'">
+			          <b-input-group size="sm">
+			            <b-form-input id="filter-input" v-model="filter" type="search" placeholder="Type to Search" debounce="700"></b-form-input>
+			
+			            <b-input-group-append>
+			              <b-button :disabled="!filter" @click="filter = ''">Clear</b-button>
+			            </b-input-group-append>
+			          </b-input-group>
+			        </b-form-group>
+			        
+				    <b-form-checkbox id="identifiers-checkbox" v-model="identifierField" name="identifier-checkbox" value="true">
+				      Identifier(s)
+				    </b-form-checkbox>			        
+			        
+				    <b-form-checkbox id="hideUUID-checkbox" v-model="hideUUID" name="hideUUID-checkbox" value="true">
+				      Hide UUID
+				    </b-form-checkbox>			        
+			        
+				    <b-table striped hover :items="items" :fields="fields">
+				      <template #cell(element)="data">
+				        <a :href="data.value.location">
+					      	<span v-if="data.value.icon">
+					      		<img v-if="data.value.icon.includes('/')" :src="data.value.icon">
+					      		<i v-else :class="data.value.icon"></i>
+					      	</span>
+				        	{{data.value.name}}
+				        
+				      </a></template>	
+				      <template #cell(identifiers)="data">
+				      	<span v-if="data.value.length == 1">
+					        {{data.value[0].value}}
+					        <i class="far fa-copy nsd-copy-to-clipboard" style="cursor:pointer" title="Copy identifier to clipboard" :onclick="data.value[0].onClick"></i> 
+				      	</span>
+				      	<ul v-else>
+				      		<li v-for="item in data.value">
+						        {{item.value}} <i class="far fa-copy nsd-copy-to-clipboard" style="cursor:pointer" title="Copy identifier to clipboard" :onclick="item.onClick"></i> 
+				      		</li>
+				      	</ul>
+				      </template>	
+				    </b-table>
+	        	</div>
+	        </div>	        
+     	</div>
+     
+		<script>		      
+			new Vue({
+				  el: '#semantic-info-app',
+				  data: {
+			        	filter: null,
+			        	semanticInfo: [{"identifiers":["uuid:0896c3bf-22af-489d-a232-4bb2adff375a"],"name":"Nasdanika Demos","icon":"https://docs.nasdanika.org/images/nasdanika-logo.png","location":"https://github.com/Nasdanika-Demos","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:0896c3bf-22af-489d-a232-4bb2adff375a"]},"identifiers":["uuid:e3ecb8fc-ac00-4807-848e-e215c2dc47e9"],"name":"Search","icon":"fas fa-search","location":"search.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:0896c3bf-22af-489d-a232-4bb2adff375a"]},"identifiers":["uuid:d21024b9-b051-4c39-8f0a-fb573c18d042"],"name":"Glossary","icon":"fas fa-book","location":"glossary.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:0896c3bf-22af-489d-a232-4bb2adff375a"]},"identifiers":["uuid:d8dd47af-27ae-448c-9e6e-2f169e6fa5eb"],"name":"Sources","icon":"fab fa-github","location":"https://github.com/Nasdanika-Demos/compute-graph","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"identifiers":["ecore://nasdanika.org/demos/graph/compute"],"name":"Compute Model","icon":"https://img.icons8.com/nolan/64/apple-calculator.png","description":"A model of operands and operators","location":"index.html","type":{"name":"EPackage","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Assignment"],"name":"Assignment","icon":"fas fa-equals","description":"Assigns the value of its right-hand operand to its left-hand operand","location":"references/eClassifiers/Assignment/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:67d868b5-2ccd-4a68-af01-0d97145d2893"]},"identifiers":["uuid:5d277ad4-fe56-4469-b007-ef5f2725308d"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:67d868b5-2ccd-4a68-af01-0d97145d2893"]},"identifiers":["uuid:8a5597f0-1e53-4999-b218-b7f884ffe7dd"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Assignment/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:8a5597f0-1e53-4999-b218-b7f884ffe7dd"]},"identifiers":["uuid:9ed64121-7486-4314-86eb-e8ef52badc17"],"name":"Supertypes","location":"references/eClassifiers/Assignment/inheritance.html#uuid-9ed64121-7486-4314-86eb-e8ef52badc17","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:67d868b5-2ccd-4a68-af01-0d97145d2893"]},"identifiers":["uuid:be404ae0-5256-4531-8465-80cd8e397303"],"name":"References","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","location":"references/eClassifiers/Assignment/references.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:67d868b5-2ccd-4a68-af01-0d97145d2893"]},"identifiers":["uuid:aff64c15-33e5-4c4f-98ee-e654ec741d42"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Assignment/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:67d868b5-2ccd-4a68-af01-0d97145d2893"]},"identifiers":["uuid:900234ca-b5ec-4567-b010-5cdb3a5f984c"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:900234ca-b5ec-4567-b010-5cdb3a5f984c"]},"identifiers":["uuid:388e9c97-6e60-40df-9a2d-65ff0dc4fc78"],"name":"Default Graph","location":"references/eClassifiers/Assignment/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:388e9c97-6e60-40df-9a2d-65ff0dc4fc78"]},"identifiers":["uuid:dd9c0b97-246b-49d0-9585-6e2264891b52"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:900234ca-b5ec-4567-b010-5cdb3a5f984c"]},"identifiers":["uuid:51fa7009-dbfa-44da-a02e-437a2bf173ad"],"name":"Circular Graph","location":"references/eClassifiers/Assignment/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:51fa7009-dbfa-44da-a02e-437a2bf173ad"]},"identifiers":["uuid:b71db7ff-662e-4560-be5a-92e4c97971e9"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:900234ca-b5ec-4567-b010-5cdb3a5f984c"]},"identifiers":["uuid:61ddca45-90ba-4aa6-b56c-96133494f771"],"name":"Force Graph","location":"references/eClassifiers/Assignment/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:61ddca45-90ba-4aa6-b56c-96133494f771"]},"identifiers":["uuid:45b0dd9c-7df7-4b51-8746-d335bfd2090a"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:900234ca-b5ec-4567-b010-5cdb3a5f984c"]},"identifiers":["uuid:245f0bcb-e2e6-4a52-9473-17233f748dd9"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:67d868b5-2ccd-4a68-af01-0d97145d2893"]},"identifiers":["uuid:c0c0257d-16b5-472a-a4fc-805d960b63b6"],"name":"Load specification","location":"references/eClassifiers/Assignment/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Literal"],"name":"Literal","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","description":"In this model a person is an abstract supertype of Man and Woman","location":"references/eClassifiers/Literal/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:2a0c49e2-faca-4749-98a6-3391dd4622ee"]},"identifiers":["uuid:1652c054-6fbd-46b4-816a-585462889aad"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2a0c49e2-faca-4749-98a6-3391dd4622ee"]},"identifiers":["uuid:7851f18c-0eeb-4e5b-a93a-e7f196820b05"],"name":"Attributes","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif","location":"references/eClassifiers/Literal/attributes.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2a0c49e2-faca-4749-98a6-3391dd4622ee"]},"identifiers":["uuid:2a27b0da-212e-4ae3-8090-b854cbf7c331"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Literal/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:2a27b0da-212e-4ae3-8090-b854cbf7c331"]},"identifiers":["uuid:12f17921-f9cb-40f5-95a4-d4e90afee9fc"],"name":"Supertypes","location":"references/eClassifiers/Literal/inheritance.html#uuid-12f17921-f9cb-40f5-95a4-d4e90afee9fc","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2a0c49e2-faca-4749-98a6-3391dd4622ee"]},"identifiers":["uuid:da16a992-2454-417f-b828-eecf32d032d8"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Literal/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2a0c49e2-faca-4749-98a6-3391dd4622ee"]},"identifiers":["uuid:40ddf863-ef48-49b6-b9b4-d8a554c8c92d"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:40ddf863-ef48-49b6-b9b4-d8a554c8c92d"]},"identifiers":["uuid:0eea71b5-c548-46ac-aa91-fa1e377828f4"],"name":"Default Graph","location":"references/eClassifiers/Literal/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:0eea71b5-c548-46ac-aa91-fa1e377828f4"]},"identifiers":["uuid:adc40471-9461-4939-8541-3a32f8f9223d"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:40ddf863-ef48-49b6-b9b4-d8a554c8c92d"]},"identifiers":["uuid:2ffb2d45-49d3-47b4-b44a-66d835287916"],"name":"Circular Graph","location":"references/eClassifiers/Literal/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:2ffb2d45-49d3-47b4-b44a-66d835287916"]},"identifiers":["uuid:6a5dbd7e-c9bf-4b30-b4dd-52baba60b279"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:40ddf863-ef48-49b6-b9b4-d8a554c8c92d"]},"identifiers":["uuid:fe778a45-ca76-4973-ba30-d13e6bf3fe0e"],"name":"Force Graph","location":"references/eClassifiers/Literal/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:fe778a45-ca76-4973-ba30-d13e6bf3fe0e"]},"identifiers":["uuid:2aa9a421-f770-44bf-a9c5-1a90b874ac21"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:40ddf863-ef48-49b6-b9b4-d8a554c8c92d"]},"identifiers":["uuid:f4a3096d-86a4-4d65-b1ed-856383f2f0ea"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2a0c49e2-faca-4749-98a6-3391dd4622ee"]},"identifiers":["uuid:206582e2-2efd-4011-a8d8-29719a98d1a2"],"name":"Load specification","location":"references/eClassifiers/Literal/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Multiplication"],"name":"Multiplication","icon":"fas fa-asterisk","description":"In this model a person is an abstract supertype of Man and Woman","location":"references/eClassifiers/Multiplication/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:9bdce9ff-cdeb-4304-b46e-69547fd2fd93"]},"identifiers":["uuid:18300e33-5758-4b1f-90ce-0928a01c8d59"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9bdce9ff-cdeb-4304-b46e-69547fd2fd93"]},"identifiers":["uuid:2017d38a-5973-476b-a56d-c941934e5e5a"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Multiplication/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:2017d38a-5973-476b-a56d-c941934e5e5a"]},"identifiers":["uuid:f0a55640-0538-4290-a013-c8cb8c75e6fa"],"name":"Supertypes","location":"references/eClassifiers/Multiplication/inheritance.html#uuid-f0a55640-0538-4290-a013-c8cb8c75e6fa","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9bdce9ff-cdeb-4304-b46e-69547fd2fd93"]},"identifiers":["uuid:7caadb57-f993-456a-9b5f-85f954cf4994"],"name":"References","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","location":"references/eClassifiers/Multiplication/references.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9bdce9ff-cdeb-4304-b46e-69547fd2fd93"]},"identifiers":["uuid:d588a6e3-d1c5-44fa-a75b-818f27164b90"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Multiplication/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9bdce9ff-cdeb-4304-b46e-69547fd2fd93"]},"identifiers":["uuid:a4f2d7fc-da43-4e0a-b19e-f0230790323b"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:a4f2d7fc-da43-4e0a-b19e-f0230790323b"]},"identifiers":["uuid:c1d863f6-46bc-45ad-97f3-4a643ffcfdd9"],"name":"Default Graph","location":"references/eClassifiers/Multiplication/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:c1d863f6-46bc-45ad-97f3-4a643ffcfdd9"]},"identifiers":["uuid:d2907aca-02e9-4b57-b9a0-b0b8bd371b88"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:a4f2d7fc-da43-4e0a-b19e-f0230790323b"]},"identifiers":["uuid:af4e3cbd-9986-44d4-a13d-58db20ddf35c"],"name":"Circular Graph","location":"references/eClassifiers/Multiplication/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:af4e3cbd-9986-44d4-a13d-58db20ddf35c"]},"identifiers":["uuid:03aba8bf-a4c0-4815-a7dc-fd209e557369"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:a4f2d7fc-da43-4e0a-b19e-f0230790323b"]},"identifiers":["uuid:58439f75-4cee-4506-9a9a-d93c5c1903ec"],"name":"Force Graph","location":"references/eClassifiers/Multiplication/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:58439f75-4cee-4506-9a9a-d93c5c1903ec"]},"identifiers":["uuid:ee124411-f8f7-42d1-b9dd-9c9901701f26"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:a4f2d7fc-da43-4e0a-b19e-f0230790323b"]},"identifiers":["uuid:605bf2a3-0802-42b1-8411-e6ca8e20f5de"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9bdce9ff-cdeb-4304-b46e-69547fd2fd93"]},"identifiers":["uuid:d1c02e37-4002-4ded-8296-7ba3e7a99906"],"name":"Load specification","location":"references/eClassifiers/Multiplication/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Operand"],"name":"Operand","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","description":"In this model a person is an abstract supertype of Man and Woman","location":"references/eClassifiers/Operand/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:f0bb2e83-ef42-47a9-8bb4-6932c7cc1993"]},"identifiers":["uuid:ad2cec46-b97e-427d-803f-3599975bdbba"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f0bb2e83-ef42-47a9-8bb4-6932c7cc1993"]},"identifiers":["uuid:2e60f77a-b2dd-499b-aa03-85e0271065f3"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Operand/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:2e60f77a-b2dd-499b-aa03-85e0271065f3"]},"identifiers":["uuid:c90f08df-7bee-4a2c-bafb-32ca989b7203"],"name":"Subtypes","location":"references/eClassifiers/Operand/inheritance.html#uuid-c90f08df-7bee-4a2c-bafb-32ca989b7203","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f0bb2e83-ef42-47a9-8bb4-6932c7cc1993"]},"identifiers":["uuid:65f2c516-8aff-4c2d-b78d-a3c0f2b3d32c"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Operand/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f0bb2e83-ef42-47a9-8bb4-6932c7cc1993"]},"identifiers":["uuid:f52e705c-5087-4703-b9f2-6da514df77bc"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:f52e705c-5087-4703-b9f2-6da514df77bc"]},"identifiers":["uuid:35c154b7-8eaf-4397-a216-12db2c2bdea2"],"name":"Default Graph","location":"references/eClassifiers/Operand/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:35c154b7-8eaf-4397-a216-12db2c2bdea2"]},"identifiers":["uuid:c3cf1fdb-ce7c-445c-b198-759be4ec48b9"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:f52e705c-5087-4703-b9f2-6da514df77bc"]},"identifiers":["uuid:8fd04025-803c-4829-8947-4e487114b8a3"],"name":"Circular Graph","location":"references/eClassifiers/Operand/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:8fd04025-803c-4829-8947-4e487114b8a3"]},"identifiers":["uuid:c1418deb-7854-4357-bde9-a4307dc6692a"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:f52e705c-5087-4703-b9f2-6da514df77bc"]},"identifiers":["uuid:9f868098-682f-463a-8c69-4e177e9b5e8b"],"name":"Force Graph","location":"references/eClassifiers/Operand/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:9f868098-682f-463a-8c69-4e177e9b5e8b"]},"identifiers":["uuid:25f198cf-7a92-409b-9990-007669cd3fe9"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:f52e705c-5087-4703-b9f2-6da514df77bc"]},"identifiers":["uuid:2c5e5760-e267-4b21-ae42-ccd4960c2bf7"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Operator"],"name":"Operator","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","description":"In this model a person is an abstract supertype of Man and Woman","location":"references/eClassifiers/Operator/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:2d6fde7d-7c13-411a-bd75-a51e5adaa5b8"]},"identifiers":["uuid:647312b0-3665-412f-ac21-61f68dfb1772"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2d6fde7d-7c13-411a-bd75-a51e5adaa5b8"]},"identifiers":["uuid:a760916b-f6fb-4f5f-8507-dd8fbad963d5"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Operator/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:a760916b-f6fb-4f5f-8507-dd8fbad963d5"]},"identifiers":["uuid:81a48b9e-e4ec-4cb6-818e-667a7f035fdd"],"name":"Supertypes","location":"references/eClassifiers/Operator/inheritance.html#uuid-81a48b9e-e4ec-4cb6-818e-667a7f035fdd","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:a760916b-f6fb-4f5f-8507-dd8fbad963d5"]},"identifiers":["uuid:5d3aeb5a-eaae-4f74-b561-acd97d6d8b1c"],"name":"Subtypes","location":"references/eClassifiers/Operator/inheritance.html#uuid-5d3aeb5a-eaae-4f74-b561-acd97d6d8b1c","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2d6fde7d-7c13-411a-bd75-a51e5adaa5b8"]},"identifiers":["uuid:8132e65d-b97c-4dca-8ee4-8d06156904a3"],"name":"References","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","location":"references/eClassifiers/Operator/references.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eStructuralFeatures","identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Operator"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Operator/eStructuralFeatures/operands"],"name":"Members","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","description":"A collection of family members","location":"references/eClassifiers/Operator/references/eStructuralFeatures/operands/index.html","type":{"name":"EReference","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:593621fb-efc9-48c5-a231-28949f664168"]},"identifiers":["uuid:be88ea92-07c1-4f84-a1e7-27e060ecec39"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:593621fb-efc9-48c5-a231-28949f664168"]},"identifiers":["uuid:daeb46cc-4185-4ec8-af47-26b98bb7cbd6"],"name":"Load specification","location":"references/eClassifiers/Operator/references/eStructuralFeatures/operands/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2d6fde7d-7c13-411a-bd75-a51e5adaa5b8"]},"identifiers":["uuid:8e5eb70e-f7ca-49fd-8511-454ee5e545b7"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Operator/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2d6fde7d-7c13-411a-bd75-a51e5adaa5b8"]},"identifiers":["uuid:5253bdae-fc20-4774-8738-f219d949a7da"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:5253bdae-fc20-4774-8738-f219d949a7da"]},"identifiers":["uuid:390e446c-c0de-4b01-a2c8-06e6fedc547f"],"name":"Default Graph","location":"references/eClassifiers/Operator/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:390e446c-c0de-4b01-a2c8-06e6fedc547f"]},"identifiers":["uuid:8e4a06ee-528a-4e72-bd6f-43f4dac0a0f0"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:5253bdae-fc20-4774-8738-f219d949a7da"]},"identifiers":["uuid:74e4a569-92ca-46c2-9e85-a59d381af781"],"name":"Circular Graph","location":"references/eClassifiers/Operator/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:74e4a569-92ca-46c2-9e85-a59d381af781"]},"identifiers":["uuid:ec3024d7-7970-4186-bda2-4720da3e6904"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:5253bdae-fc20-4774-8738-f219d949a7da"]},"identifiers":["uuid:c80ad716-c83b-418d-a0b8-a4fc28b55a3d"],"name":"Force Graph","location":"references/eClassifiers/Operator/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:c80ad716-c83b-418d-a0b8-a4fc28b55a3d"]},"identifiers":["uuid:2b68acc9-09a8-4d51-a159-34f78ca17001"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:5253bdae-fc20-4774-8738-f219d949a7da"]},"identifiers":["uuid:07fc8ef7-04a8-4ccd-bd32-2d6c664bb38a"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:2d6fde7d-7c13-411a-bd75-a51e5adaa5b8"]},"identifiers":["uuid:715eb380-e462-4566-8042-6dd44e87927e"],"name":"Load specification","location":"references/eClassifiers/Operator/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Reference"],"name":"Reference","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","description":"In this model a person is an abstract supertype of Man and Woman","location":"references/eClassifiers/Reference/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:83da82ea-da4c-4440-b7c8-9d9839a97f21"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:f3e993e7-d2d2-40be-bc4f-320801344ab6"],"name":"Attributes","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif","location":"references/eClassifiers/Reference/attributes.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:ea06699a-d8fb-4d1d-848f-faddb4ca1005"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Reference/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:ea06699a-d8fb-4d1d-848f-faddb4ca1005"]},"identifiers":["uuid:e7872f33-8359-48f8-a90d-748167bf8538"],"name":"Supertypes","location":"references/eClassifiers/Reference/inheritance.html#uuid-e7872f33-8359-48f8-a90d-748167bf8538","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:c27eb8f3-91f8-4b8e-9791-113e9e3e03e5"],"name":"References","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif","location":"references/eClassifiers/Reference/references.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:cb87fdc1-4cde-4811-8861-5bb37fa62def"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Reference/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:3232ccdd-8154-4cac-8e46-e1181ecec58c"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:3232ccdd-8154-4cac-8e46-e1181ecec58c"]},"identifiers":["uuid:4e4abf3e-5a38-476d-b884-4666b025b3de"],"name":"Default Graph","location":"references/eClassifiers/Reference/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:4e4abf3e-5a38-476d-b884-4666b025b3de"]},"identifiers":["uuid:eb70b554-9fdb-4eb5-a13b-5267f7d8bb79"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:3232ccdd-8154-4cac-8e46-e1181ecec58c"]},"identifiers":["uuid:796ca15f-9d0f-464b-ae03-f70feabbe030"],"name":"Circular Graph","location":"references/eClassifiers/Reference/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:796ca15f-9d0f-464b-ae03-f70feabbe030"]},"identifiers":["uuid:b04bf0a1-8ab8-458c-ae4a-82876c1493a0"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:3232ccdd-8154-4cac-8e46-e1181ecec58c"]},"identifiers":["uuid:130bda7e-f9bb-472f-848a-cae076a4f6e3"],"name":"Force Graph","location":"references/eClassifiers/Reference/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:130bda7e-f9bb-472f-848a-cae076a4f6e3"]},"identifiers":["uuid:b33462d7-3d90-47b6-b76e-0f27602a988a"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:3232ccdd-8154-4cac-8e46-e1181ecec58c"]},"identifiers":["uuid:1ce0f146-ffa2-44a2-96f8-70afc055f150"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:9dc73e75-614a-4518-8193-c1c8ab3d0380"]},"identifiers":["uuid:2d6c3b2e-dd34-4c63-80e9-c74d472163be"],"name":"Load specification","location":"references/eClassifiers/Reference/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"eClassifiers","identifiers":["ecore://nasdanika.org/demos/graph/compute"]},"identifiers":["ecore://nasdanika.org/demos/graph/compute/eClassifiers/Variable"],"name":"Variable","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","description":"In this model a person is an abstract supertype of Man and Woman","location":"references/eClassifiers/Variable/index.html","type":{"name":"EClass","ns-uri":"http://www.eclipse.org/emf/2002/Ecore"}},{"container":{"reference":"decorator","identifiers":["uuid:f4a39209-b7bb-4eb1-8a06-4af72239b56a"]},"identifiers":["uuid:8f343eee-c239-4b35-a346-a6cac4b0d87d"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f4a39209-b7bb-4eb1-8a06-4af72239b56a"]},"identifiers":["uuid:5636aa6a-4751-45f3-b8a3-be4c8295a382"],"name":"Attributes","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EAttribute.gif","location":"references/eClassifiers/Variable/attributes.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f4a39209-b7bb-4eb1-8a06-4af72239b56a"]},"identifiers":["uuid:3389579b-b020-44e9-8c4c-1cbbc7a748c1"],"name":"Inheritance","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EGenericSuperType.gif","location":"references/eClassifiers/Variable/inheritance.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"sections","identifiers":["uuid:3389579b-b020-44e9-8c4c-1cbbc7a748c1"]},"identifiers":["uuid:32da2d8e-c042-4a30-8c84-3b0828047364"],"name":"Supertypes","location":"references/eClassifiers/Variable/inheritance.html#uuid-32da2d8e-c042-4a30-8c84-3b0828047364","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f4a39209-b7bb-4eb1-8a06-4af72239b56a"]},"identifiers":["uuid:84222817-a5a6-4180-a16d-60eb971b2683"],"name":"Diagram","icon":"fas fa-project-diagram","location":"references/eClassifiers/Variable/diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f4a39209-b7bb-4eb1-8a06-4af72239b56a"]},"identifiers":["uuid:97da72d4-53dd-4a80-95b3-179ce51c8500"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:97da72d4-53dd-4a80-95b3-179ce51c8500"]},"identifiers":["uuid:9cd7c46b-5c8b-4170-b9d3-7aabd206abd4"],"name":"Default Graph","location":"references/eClassifiers/Variable/default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:9cd7c46b-5c8b-4170-b9d3-7aabd206abd4"]},"identifiers":["uuid:fe21b7c9-6c87-4ef6-8b9e-abd1c1b9908d"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:97da72d4-53dd-4a80-95b3-179ce51c8500"]},"identifiers":["uuid:0ef242af-9f26-4d91-bc78-2cf4857a8cd2"],"name":"Circular Graph","location":"references/eClassifiers/Variable/circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:0ef242af-9f26-4d91-bc78-2cf4857a8cd2"]},"identifiers":["uuid:5c8c8163-5f17-4059-b428-d9dc83798461"],"icon":"far fa-question-circle","description":"A circular layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:97da72d4-53dd-4a80-95b3-179ce51c8500"]},"identifiers":["uuid:53834ef1-d5cf-4699-b911-3e0c70819c11"],"name":"Force Graph","location":"references/eClassifiers/Variable/force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:53834ef1-d5cf-4699-b911-3e0c70819c11"]},"identifiers":["uuid:103bb430-53c5-4591-87ef-b4993723e262"],"icon":"far fa-question-circle","description":"A live force-layout graph of this classifier and related classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:97da72d4-53dd-4a80-95b3-179ce51c8500"]},"identifiers":["uuid:f9081255-42e2-4d17-8ca7-0513c9a891f9"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f4a39209-b7bb-4eb1-8a06-4af72239b56a"]},"identifiers":["uuid:2d6fc377-4143-49ce-9d5e-09e38bf3194c"],"name":"Load specification","location":"references/eClassifiers/Variable/load-specification.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:f8bb3cfc-7697-4938-85d1-7d873e60a585"]},"identifiers":["uuid:730c9110-46ed-4363-84ef-72f620c169c6"],"icon":"far fa-question-circle","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f8bb3cfc-7697-4938-85d1-7d873e60a585"]},"identifiers":["uuid:b79cb153-2a84-42ff-9d81-c09ca4c7af96"],"name":"Classifiers","location":"classifiers.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f8bb3cfc-7697-4938-85d1-7d873e60a585"]},"identifiers":["uuid:faffb760-8b37-45ee-b5df-8bfc510ff292"],"name":"Diagram","icon":"fas fa-project-diagram","location":"diagram.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:faffb760-8b37-45ee-b5df-8bfc510ff292"]},"identifiers":["uuid:4bfcc631-e542-4744-ad1a-2a1fd6166665"],"icon":"far fa-question-circle","description":"A class diagram showing package classifiers and relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"navigation","identifiers":["uuid:f8bb3cfc-7697-4938-85d1-7d873e60a585"]},"identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"],"name":"Graphs","icon":"https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:50a85e0a-9a14-4948-8d81-26f39933bd85"],"name":"Default Graph","location":"default-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:50a85e0a-9a14-4948-8d81-26f39933bd85"]},"identifiers":["uuid:25ff4cf7-c15b-40ad-a0c6-1e2ebc67989e"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of package classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:87b86cc2-e88b-42b0-adcb-17b531a8f93c"],"name":"Circular Graph","location":"circular-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:87b86cc2-e88b-42b0-adcb-17b531a8f93c"]},"identifiers":["uuid:4d7c1198-57df-4e20-a6d4-c906e93e498f"],"icon":"far fa-question-circle","description":"A circular layout graph of package classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:64696966-846d-4e6a-98a6-ce4a2ef798e2"],"name":"Force Graph","location":"force-layout-graph.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:64696966-846d-4e6a-98a6-ce4a2ef798e2"]},"identifiers":["uuid:5d4b164e-e792-4c01-a1f5-c0edc9c9d9cb"],"icon":"far fa-question-circle","description":"A live force-layout graph of package classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:344eff74-d197-4434-9d93-5822a1857249"],"description":"With dependencies and sub-packages","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:26183172-2716-46cf-8c67-feff5b749687"],"name":"Default Graph","location":"default-graph-with-dependencies-and-subpackages.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:26183172-2716-46cf-8c67-feff5b749687"]},"identifiers":["uuid:6a621831-d35e-46e9-bd80-6b7bdc7d99cc"],"icon":"far fa-question-circle","description":"A fixed force-layout graph of package classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:9254002e-8015-4e6a-89c8-0c6a8f6696e1"],"name":"Circular Graph","location":"circular-layout-graph-with-dependencies-and-subpackages.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:9254002e-8015-4e6a-89c8-0c6a8f6696e1"]},"identifiers":["uuid:78af42ae-dfd6-4b16-8cf8-efaaa2108c89"],"icon":"far fa-question-circle","description":"A circular layout graph of package classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"children","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:acf7d428-4f75-4589-91ee-270b79d597b0"],"name":"Force Graph","location":"force-layout-graph-with-dependencies-and-subpackages.html","type":{"name":"Action","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:acf7d428-4f75-4589-91ee-270b79d597b0"]},"identifiers":["uuid:cd961fb7-9d25-4232-8eab-b5899bf6704a"],"icon":"far fa-question-circle","description":"A live force-layout graph of package classifiers showing relationships between them","type":{"name":"Link","ns-uri":"ecore://nasdanika.org/html/app"}},{"container":{"reference":"decorator","identifiers":["uuid:4f004af4-88be-430a-a2e1-7b73465ffdec"]},"identifiers":["uuid:1b538376-ab4f-4f0c-8942-9cdc9037f48b"],"icon":"far fa-question-circle","description":"Graphs of package classifiers showing relationships between them","type":{"name":"Label","ns-uri":"ecore://nasdanika.org/html/app"}}],
+			        	identifierField: false,
+			        	hideUUID: true
+				  },				  
+				  computed: {			
+					fields: function() {
+			        	let fields = [
+			                {
+			                  key: 'element',
+			                  label: "Element",
+			                  sortable: false
+			                },
+			                {
+			                  key: 'description',
+			                  label: 'Description',
+			                  sortable: true
+			                }
+			              ];
+			        	
+			        	if (this.identifierField) {
+			        		fields.push(			                {
+				                  key: 'identifiers',
+				                  label: "Identifier(s)",
+				                  sortable: true
+				            });
+			        	}
+						return fields;
+					},  
+					items: function() {
+						const ret = []; 
+						for (let idx in this.semanticInfo) {
+							let semanticEntry = this.semanticInfo[idx];
+							let entry = {
+								identifiers: [],
+								element: {}
+							};
+							
+							if (semanticEntry.location) {
+								entry.element.location = semanticEntry.location;
+							}
+							if (semanticEntry.name) {
+								entry.element.name = semanticEntry.name;
+							}
+							if (semanticEntry.icon) {
+								entry.element.icon = semanticEntry.icon;
+							}
+							if (semanticEntry.description) {
+								entry.description = semanticEntry.description;
+							}
+							
+							if (semanticEntry.identifiers) {
+								for (let iIdx in semanticEntry.identifiers) {
+									let identifier = semanticEntry.identifiers[iIdx];
+									if (this.hideUUID && identifier && identifier.startsWith("uuid:")) {
+										continue;
+									}
+									entry.identifiers.push({
+										value: identifier,
+										onClick: "navigator.clipboard.writeText('" + identifier +"')"							
+									});
+								}
+							}
+
+							ret.push(entry);
+						}
+						
+						return ret.filter(item => {
+							if (item.identifiers.length == 0) {
+								return false;
+							}
+							if (this.filter && this.filter.length > 1) {
+								for (let identifierItem in item.identifiers) {
+									let identifier = item.identifiers[identifierItem].value;
+									if (identifier && identifier.toLowerCase().includes(this.filter.toLowerCase())) {
+										return true;
+									}									
+								}
+								if (item.description && item.description.toLowerCase().includes(this.filter.toLowerCase())) {
+									return true;
+								}
+								if (item.element.name && item.element.name.toLowerCase().includes(this.filter.toLowerCase())) {
+									return true;
+								}
+								return false;
+							}
+							return true;
+						}).sort((a, b) => {
+							if (a.element.name) {
+								if (b.element.name) {
+									return a.element.name.localeCompare(b.element.name);
+								}					
+								return -1;
+							}
+							return 1;
+						}); 						
+					}
+				  }
+			});   			
+		</script>
+				
+		</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-footer">
+          <ul class="nav nsd-app-footer-navs">
+            <li class="nav-item">
+              <a href="https://github.com/Nasdanika-Demos/compute-graph" data-nsd-label-uuid="d8dd47af-27ae-448c-9e6e-2f169e6fa5eb" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

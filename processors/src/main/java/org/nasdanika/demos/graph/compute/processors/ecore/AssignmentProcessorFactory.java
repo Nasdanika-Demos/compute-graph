@@ -26,23 +26,12 @@ public class AssignmentProcessorFactory {
 	}
 	
 	@EClassifierNodeProcessorFactory(
-			label = "Person",
-			description = "In this model a person is an abstract supertype of Man and Woman",
+			description = "Assigns the value of its right-hand operand to its left-hand operand",
 			documentation = 
 					"""
-					A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, 
-					consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, 
-					ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, 
-					differ widely among cultures and contexts.
-	
-					In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: 
-					both about what makes any particular person that particular person instead of another, 
-					and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes.
-	
-					The plural form "people" is often used to refer to an entire nation or ethnic group (as in "a people"), and this was the original meaning of the word; 
-					it subsequently acquired its use as a plural form of person. The plural form "persons" is often used in philosophical and legal writing.
+					Assigns the value of its right-hand operand (index 1) to a its left-hand operand (index 0), which should be a variable.
 					""",
-			icon = "fas fa-user"
+			icon = "fas fa-equals"
 	)
 	public EClassNodeProcessor createOperandProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
@@ -59,18 +48,18 @@ public class AssignmentProcessorFactory {
 				}
 			}
 			
-			@Override
-			protected EModelElementDocumentation getLoadDocumentation() {
-				return new EModelElementDocumentation("""
-						Some ``documentation``:
-						
-						```yaml
-						key: value
-						```
-						
-						""", 
-						Util.createClassURI(getClass()));
-			}
+//			@Override
+//			protected EModelElementDocumentation getLoadDocumentation() {
+//				return new EModelElementDocumentation("""
+//						Some ``documentation``:
+//						
+//						```yaml
+//						key: value
+//						```
+//						
+//						""", 
+//						Util.createClassURI(getClass()));
+//			}
 						
 		};
 	}	

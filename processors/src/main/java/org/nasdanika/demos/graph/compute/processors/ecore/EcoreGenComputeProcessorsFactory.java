@@ -2,6 +2,7 @@ package org.nasdanika.demos.graph.compute.processors.ecore;
 
 import java.util.function.BiConsumer;
 
+import org.eclipse.emf.common.util.URI;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Reflector.Factory;
@@ -59,14 +60,15 @@ public class EcoreGenComputeProcessorsFactory {
 	 */
 	@EPackageNodeProcessorFactory(
 			label = "Compute Model",
-			actionPrototype = """
-                    app-action:
-                        text: Param
-                        icon: fas fa-user					
-					""",
+//			actionPrototype = """
+//                    app-action:
+//                        text: Param
+//                        icon: fas fa-user					
+//					""",
 			icon = "https://img.icons8.com/nolan/64/apple-calculator.png",
 			description = "A model of operands and operators",
 			documentation =  """
+					
 				Family model is used to demonstrate different Nasdanika technologies such as:
 				
 				* Generating of metamodel (Ecore) documentation like this one
@@ -96,6 +98,12 @@ public class EcoreGenComputeProcessorsFactory {
 				if (labelConfigurator != null) {
 					labelConfigurator.accept(label, progressMonitor);
 				}
+			}
+			
+			@Override
+			public void resolve(URI base, ProgressMonitor progressMonitor) {
+				// TODO Auto-generated method stub
+				super.resolve(base, progressMonitor);
 			}
 			
 		};

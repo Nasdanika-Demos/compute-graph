@@ -26,7 +26,6 @@ public class MultiplicationProcessorFactory {
 	}
 	
 	@EClassifierNodeProcessorFactory(
-			label = "Person",
 			description = "In this model a person is an abstract supertype of Man and Woman",
 			documentation = 
 					"""
@@ -42,7 +41,7 @@ public class MultiplicationProcessorFactory {
 					The plural form "people" is often used to refer to an entire nation or ethnic group (as in "a people"), and this was the original meaning of the word; 
 					it subsequently acquired its use as a plural form of person. The plural form "persons" is often used in philosophical and legal writing.
 					""",
-			icon = "fas fa-user"
+			icon = "fas fa-asterisk"
 	)
 	public EClassNodeProcessor createOperandProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 

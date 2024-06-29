@@ -19,7 +19,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.ComputePackage;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.html.model.app.gen.ActionSiteGenerator;
-import org.nasdanika.html.model.app.graph.emf.ActionGenerator;
+import org.nasdanika.models.ecore.graph.processors.EcoreActionGenerator;
 
 /**
  * Tests Ecore -> Graph -> Processor -> actions generation
@@ -38,7 +38,7 @@ public class TestComputeModelDocGen {
 		actionModelsDir.mkdirs();
 		File output = new File(actionModelsDir, "compute-graph.xmi");
 			
-		ActionGenerator actionGenerator = ActionGenerator.load(
+		EcoreActionGenerator actionGenerator = EcoreActionGenerator.loadEcoreActionGenerator(
 				ComputePackage.eINSTANCE, 
 				context, 
 				null, 
