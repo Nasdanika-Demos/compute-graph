@@ -1,0 +1,28 @@
+app-action:
+  icon: https://docs.nasdanika.org/images/nasdanika-logo.png
+  text: Nasdanika Demos
+  location: https://github.com/Nasdanika-Demos
+  children:
+    - app-action-reference: "target/action-models/compute-graph.xmi#/"
+    - app-action:
+        location: ${base-uri}search.html
+        icon: fas fa-search
+        text: Search
+        content:
+          content-interpolator:
+            source:
+              content-resource: classpath://org/nasdanika/html/model/app/gen/search.html
+    - app-action:
+        location: ${base-uri}glossary.html
+        icon: fas fa-book
+        text: Glossary
+        content:
+          content-interpolator:
+            source:
+              content-resource: classpath://org/nasdanika/html/model/app/gen/semantic-info.html
+  navigation:
+    - app-action:
+        location: https://github.com/Nasdanika-Demos/compute-graph
+        icon: fab fa-github
+        text: Sources
+          

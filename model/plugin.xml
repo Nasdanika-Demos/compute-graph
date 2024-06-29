@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated compute -->
+      <package
+            uri="ecore://nasdanika.org/demos/graph/compute"
+            class="org.nasdanika.demos.graph.compute.ComputePackage"
+            genModel="model/compute.genmodel"/>
+   </extension>
+
+</plugin>

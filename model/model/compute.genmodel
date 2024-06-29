@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.demos.graph.compute/src/main/java"
+    creationIcons="false" editorDirectory="" modelPluginID="org.nasdanika.demos.graph.compute"
+    modelName="Compute" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" complianceLevel="17.0"
+    suppressGenModelAnnotations="false" copyrightFields="false" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>compute.ecore</foreignModel>
+  <genPackages prefix="Compute" basePackage="org.nasdanika.demos.graph" disposableProviderFactory="true"
+      ecorePackage="compute.ecore#/">
+    <genClasses ecoreClass="compute.ecore#//Operand"/>
+    <genClasses ecoreClass="compute.ecore#//Operator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference compute.ecore#//Operator/operands"/>
+    </genClasses>
+    <genClasses ecoreClass="compute.ecore#//Assignment"/>
+    <genClasses ecoreClass="compute.ecore#//Multiplication"/>
+    <genClasses ecoreClass="compute.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute compute.ecore#//Literal/value"/>
+    </genClasses>
+    <genClasses ecoreClass="compute.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute compute.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="compute.ecore#//Reference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute compute.ecore#//Reference/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference compute.ecore#//Reference/variable"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
