@@ -28,12 +28,78 @@ import org.nasdanika.graph.processor.CapabilityProcessorFactory;
 import org.nasdanika.graph.processor.NodeProcessorInfo;
 import org.nasdanika.graph.processor.NopEndpointProcessorConfigFactory;
 import org.nasdanika.graph.processor.ProcessorConfig;
+import org.nasdanika.graph.processor.ProcessorFactory;
 import org.nasdanika.graph.processor.ProcessorInfo;
+import org.nasdanika.graph.processor.ReflectiveProcessorFactoryProvider;
 
 public class ComputeGraphTests {
-			
 	@Test
-	public void testSyncComputeGraph() throws IOException {
+	public void testDrawioSyncComputeGraph() throws Exception {
+		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
+		org.nasdanika.drawio.Document diagram = org.nasdanika.drawio.Document.load(diagramFile.toURI().toURL());
+		// Configs and processors. Pass-through (dumb) connections, override isPassthrough to return true for "smart" connections
+		NopEndpointProcessorConfigFactory<Function<Object,Object>> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
+		
+		Transformer<org.nasdanika.graph.Element, ProcessorConfig> transformer = new Transformer<>(processorConfigFactory);
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		Map<org.nasdanika.graph.Element, ProcessorConfig> configs = transformer.transform(Collections.singleton(diagram), false, progressMonitor);
+		
+		ReflectiveProcessorFactoryProvider<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>> processorFactoryProvider = new ReflectiveProcessorFactoryProvider<>(new org.nasdanika.demos.graph.compute.computers.diagram.sync.SyncProcessorFactory());
+		ProcessorFactory<BiFunction<Object, ProgressMonitor, Object>> processorFactory = processorFactoryProvider.getFactory(); 
+		
+		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
+		
+		// Solution processor
+		ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>> solutionProcessorInfo = processors
+				.values()
+				.stream()
+				.filter(i -> i.getProcessor() != null  && i.getElement() instanceof org.nasdanika.drawio.Node && "Solution".equals(((org.nasdanika.drawio.Node) i.getElement()).getLabel()))
+//				.forEach(i -> System.out.println(i.getProcessor() + " " + i.getParentProcessorConfig() + " " + i.getElement()));
+				.findAny()
+				.get();
+		
+		BiFunction<Object, ProgressMonitor, Object> solutionProcessor = solutionProcessorInfo.getProcessor();
+		Object result = solutionProcessor.apply("Hello", progressMonitor);
+		System.out.println(result);
+	}
+		
+	@Test
+	public void testDrawioCapabilitySyncComputeGraph() throws Exception {
+		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
+		org.nasdanika.drawio.Document diagram = org.nasdanika.drawio.Document.load(diagramFile.toURI().toURL());
+		// Configs and processors. Pass-through (dumb) connections, override isPassthrough to return true for "smart" connections
+		NopEndpointProcessorConfigFactory<Function<Object,Object>> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
+		
+		Transformer<org.nasdanika.graph.Element, ProcessorConfig> transformer = new Transformer<>(processorConfigFactory);
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		Map<org.nasdanika.graph.Element, ProcessorConfig> configs = transformer.transform(Collections.singleton(diagram), false, progressMonitor);
+		
+		CapabilityLoader capabilityLoader = new CapabilityLoader();		
+		CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>> processorFactory = new CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>>(
+				BiFunction.class, 
+				BiFunction.class, 
+				BiFunction.class, 
+				null, 
+				capabilityLoader); 
+		
+		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
+		
+		// Solution processor
+		ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>> solutionProcessorInfo = processors
+				.values()
+				.stream()
+				.filter(i -> i.getProcessor() != null  && i.getElement() instanceof org.nasdanika.drawio.Node && "Solution".equals(((org.nasdanika.drawio.Node) i.getElement()).getLabel()))
+//				.forEach(i -> System.out.println(i.getProcessor() + " " + i.getParentProcessorConfig() + " " + i.getElement()));
+				.findAny()
+				.get();
+		
+		BiFunction<Object, ProgressMonitor, Object> solutionProcessor = solutionProcessorInfo.getProcessor();
+		Object result = solutionProcessor.apply("Hello", progressMonitor);
+		System.out.println(result);
+	}
+				
+	@Test
+	public void testModelSyncComputeGraph() throws IOException {
 		CapabilityLoader capabilityLoader = new CapabilityLoader();
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		Requirement<ResourceSetRequirement, ResourceSet> requirement = ServiceCapabilityFactory.createRequirement(ResourceSet.class);		

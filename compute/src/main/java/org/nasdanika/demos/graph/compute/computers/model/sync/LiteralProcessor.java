@@ -1,4 +1,4 @@
-package org.nasdanika.demos.graph.compute.computers.sync;
+package org.nasdanika.demos.graph.compute.computers.model.sync;
 
 import java.util.function.BiFunction;
 

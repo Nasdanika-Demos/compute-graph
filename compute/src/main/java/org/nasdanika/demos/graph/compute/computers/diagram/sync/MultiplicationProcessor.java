@@ -1,4 +1,4 @@
-package org.nasdanika.demos.graph.compute.computers.sync;
+package org.nasdanika.demos.graph.compute.computers.diagram.sync;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.function.BiFunction;
 
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.graph.emf.EReferenceConnection;
 import org.nasdanika.graph.processor.IncomingHandler;
 import org.nasdanika.graph.processor.OutgoingEndpoint;
 
@@ -27,7 +26,7 @@ public class MultiplicationProcessor implements BiFunction<Object, ProgressMonit
 	}
 	
 	@OutgoingEndpoint
-	public void addOutgoingEndpoint(EReferenceConnection connection, BiFunction<Object, ProgressMonitor, Object> endpoint) {
+	public void addOutgoingEndpoint(org.nasdanika.drawio.Connection connection, BiFunction<Object, ProgressMonitor, Object> endpoint) {
 		outgoingEndpoints.add(endpoint);
 	}
 	

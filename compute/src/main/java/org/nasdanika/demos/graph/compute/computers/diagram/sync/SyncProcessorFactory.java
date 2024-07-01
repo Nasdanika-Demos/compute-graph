@@ -1,14 +1,13 @@
-package org.nasdanika.demos.graph.compute.computers.sync;
+package org.nasdanika.demos.graph.compute.computers.diagram.sync;
 
+import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.demos.graph.compute.ComputePackage;
-import org.nasdanika.demos.graph.compute.Operator;
+import org.nasdanika.drawio.Node;
 import org.nasdanika.graph.Element;
-import org.nasdanika.graph.emf.EObjectNode;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.graph.processor.Processor;
 import org.nasdanika.graph.processor.ProcessorInfo;
@@ -19,28 +18,20 @@ import org.nasdanika.graph.processor.ProcessorInfo;
 public class SyncProcessorFactory {
 	
 	@Processor(
-			type = EObjectNode.class,
-			value = "#target.isOperator(get())")
-	public Object createOperatorProcessor(
+			type = Node.class,
+			value = "label == 'Solution'")
+	public Object createSolutionProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
 		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
-		return new OperatorProcessor();
-	}
-	
-	/**
-	 * @param node
-	 * @return true for solution node
-	 */
-	public static boolean isOperator(Object obj) {
-		return obj instanceof Operator && ((Operator) obj).eClass() == ComputePackage.Literals.OPERATOR;
+		return new SolutionProcessor();
 	}
 		
 	@Processor(
-			type = EObjectNode.class,
-			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Assignment)")
+			type = Node.class,
+			value = "label == '='")
 	public Object createAssignmentProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -51,8 +42,8 @@ public class SyncProcessorFactory {
 	}
 	
 	@Processor(
-			type = EObjectNode.class,
-			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Multiplication)")
+			type = Node.class,
+			value = "label == '*'")
 	public Object createMultiplicationProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -63,8 +54,8 @@ public class SyncProcessorFactory {
 	}
 	
 	@Processor(
-			type = EObjectNode.class,
-			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Literal)")
+			type = Node.class,
+			value = "#target.isLiteral(#this)")
 	public Object createLiteralProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -73,10 +64,20 @@ public class SyncProcessorFactory {
 		ProgressMonitor progressMonitor) {
 		return new LiteralProcessor(); 
 	}
+	
+	/** 
+	 * Matching by color
+	 * @param node
+	 * @return
+	 */
+	public boolean isLiteral(Node node) {
+		Map<String, String> style = node.getStyle();
+		return "#e1d5e7".equals(style.get("fillColor")) && style.keySet().contains("ellipse"); // Only circles, excluding legend
+	}
 		
 	@Processor(
-			type = EObjectNode.class,
-			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Variable)")
+			type = Node.class,
+			value = "#target.isVariable(style)")
 	public Object createVariableProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -86,9 +87,18 @@ public class SyncProcessorFactory {
 		return new VariableProcessor();
 	}
 	
+	/** 
+	 * Matching by color
+	 * @param node
+	 * @return
+	 */
+	public boolean isVariable(Map<String, String> style) {
+		return "#ffe6cc".equals(style.get("fillColor"));
+	}
+	
 	@Processor(
-			type = EObjectNode.class,
-			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Reference)")
+			type = Node.class,
+			value = "'#bac8d3' == style.get('fillColor')")
 	public Object createReferenceProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 

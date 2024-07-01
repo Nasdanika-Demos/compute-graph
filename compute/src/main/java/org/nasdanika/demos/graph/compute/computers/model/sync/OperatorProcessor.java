@@ -1,4 +1,4 @@
-package org.nasdanika.demos.graph.compute.computers.sync;
+package org.nasdanika.demos.graph.compute.computers.model.sync;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,14 +8,8 @@ import java.util.Map;
 import java.util.function.BiFunction;
 
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.demos.graph.compute.Operator;
-import org.nasdanika.graph.emf.EObjectNode;
 import org.nasdanika.graph.processor.OutgoingEndpoint;
-import org.nasdanika.graph.processor.ProcessorElement;
 
-/**
- * {@link FunctionFlow} synchronous processor
- */
 public class OperatorProcessor implements BiFunction<Object, ProgressMonitor, Object> {
 	
 	protected Collection<BiFunction<Object, ProgressMonitor, Object>> outgoingEndpoints = Collections.synchronizedCollection(new ArrayList<>());		

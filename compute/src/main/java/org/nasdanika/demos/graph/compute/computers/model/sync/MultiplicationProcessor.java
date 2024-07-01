@@ -1,5 +1,8 @@
-package org.nasdanika.demos.graph.compute.computers.sync;
+package org.nasdanika.demos.graph.compute.computers.model.sync;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.function.BiFunction;
 
 import org.nasdanika.common.ProgressMonitor;
@@ -10,18 +13,22 @@ import org.nasdanika.graph.processor.OutgoingEndpoint;
 /**
  * {@link FunctionFlow} synchronous processor
  */
-public class ReferenceProcessor implements BiFunction<Object, ProgressMonitor, Object> {
+public class MultiplicationProcessor implements BiFunction<Object, ProgressMonitor, Object> {
 	
-	protected BiFunction<Object, ProgressMonitor, Object> outgoingEndpoint;	
+	protected Collection<BiFunction<Object, ProgressMonitor, Object>> outgoingEndpoints = Collections.synchronizedCollection(new ArrayList<>());	
 	
 	@Override
 	public Object apply(Object arg, ProgressMonitor progressMonitor) {
-		return outgoingEndpoint.apply(arg, progressMonitor);
+		double ret = 1; 
+		for (BiFunction<Object, ProgressMonitor, Object> e: outgoingEndpoints) {
+			ret *=  (double) e.apply(arg, progressMonitor);
+		}
+		return ret;
 	}
 	
 	@OutgoingEndpoint
 	public void addOutgoingEndpoint(EReferenceConnection connection, BiFunction<Object, ProgressMonitor, Object> endpoint) {
-		outgoingEndpoint = endpoint;
+		outgoingEndpoints.add(endpoint);
 	}
 	
 	@IncomingHandler
