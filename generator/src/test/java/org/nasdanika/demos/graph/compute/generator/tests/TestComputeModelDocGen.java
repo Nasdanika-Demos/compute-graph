@@ -80,7 +80,7 @@ public class TestComputeModelDocGen {
 		
 		System.out.println("There are " + errorCount + " site errors");
 		
-		if (errorCount != 167) {
+		if (errorCount != 44) {
 			throw new ExecutionException("There are problems with pages: " + errorCount);
 		}		
 	}
