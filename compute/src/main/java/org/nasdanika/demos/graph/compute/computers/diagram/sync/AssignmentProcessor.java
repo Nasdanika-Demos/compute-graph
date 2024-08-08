@@ -50,7 +50,6 @@ public class AssignmentProcessor implements BiFunction<Object, ProgressMonitor, 
 	private List<BiFunction<Object, ProgressMonitor, Object>> getSortedEndpoints() {
 		CartesianNodeComparator comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown, new LabelModelElementComparator(false));
 		return outgoingEndpoints.entrySet().stream().sorted((a,b) -> comparator.compare(a.getKey().getTarget(), b.getKey().getTarget())).map(Map.Entry::getValue).toList();
-	}
-	
+	}	
 
 }
