@@ -17,9 +17,7 @@ import org.nasdanika.graph.processor.ProcessorInfo;
  */
 public class SyncProcessorFactory {
 	
-	@Processor(
-			type = Node.class,
-			value = "label == 'Solution'")
+	@Processor("label == 'Solution'")
 	public Object createSolutionProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -29,9 +27,7 @@ public class SyncProcessorFactory {
 		return new SolutionProcessor();
 	}
 		
-	@Processor(
-			type = Node.class,
-			value = "label == '='")
+	@Processor("label == '='")
 	public Object createAssignmentProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -41,9 +37,7 @@ public class SyncProcessorFactory {
 		return new AssignmentProcessor();
 	}
 	
-	@Processor(
-			type = Node.class,
-			value = "label == '*'")
+	@Processor("label == '*'")
 	public Object createMultiplicationProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -53,9 +47,7 @@ public class SyncProcessorFactory {
 		return new MultiplicationProcessor();
 	}
 	
-	@Processor(
-			type = Node.class,
-			value = "#target.isLiteral(#this)")
+	@Processor("#target.isLiteral(#this)")
 	public Object createLiteralProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -75,9 +67,7 @@ public class SyncProcessorFactory {
 		return "#e1d5e7".equals(style.get("fillColor")) && style.keySet().contains("ellipse"); // Only circles, excluding legend
 	}
 		
-	@Processor(
-			type = Node.class,
-			value = "#target.isVariable(style)")
+	@Processor("#target.isVariable(style)")
 	public Object createVariableProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
@@ -96,9 +86,7 @@ public class SyncProcessorFactory {
 		return "#ffe6cc".equals(style.get("fillColor"));
 	}
 	
-	@Processor(
-			type = Node.class,
-			value = "'#bac8d3' == style.get('fillColor')")
+	@Processor("'#bac8d3' == style.get('fillColor')")
 	public Object createReferenceProcessor(
 		NodeProcessorConfig<?,?> config, 
 		boolean parallel, 
