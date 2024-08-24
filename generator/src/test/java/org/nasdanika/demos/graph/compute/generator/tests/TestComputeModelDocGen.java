@@ -18,7 +18,7 @@ import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.ComputePackage;
 import org.nasdanika.html.bootstrap.Theme;
-import org.nasdanika.html.model.app.gen.ActionSiteGenerator;
+import org.nasdanika.html.model.app.gen.AppSiteGenerator;
 import org.nasdanika.models.ecore.graph.processors.EcoreActionGenerator;
 
 /**
@@ -53,7 +53,7 @@ public class TestComputeModelDocGen {
 		URI rootActionURI = URI.createFileURI(new File(rootActionResource).getAbsolutePath());//.appendFragment("/");
 		
 		String siteMapDomain = "https://compute.graph.demos.nasdanika.org";		
-		ActionSiteGenerator actionSiteGenerator = new ActionSiteGenerator() {
+		AppSiteGenerator actionSiteGenerator = new AppSiteGenerator() {
 			
 			protected boolean isDeleteOutputPath(String path) {
 				return !"CNAME".equals(path) && !path.startsWith("demo/");				
