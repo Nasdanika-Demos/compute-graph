@@ -19,7 +19,7 @@ import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.ComputePackage;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.html.model.app.gen.AppSiteGenerator;
-import org.nasdanika.models.ecore.graph.processors.EcoreActionGenerator;
+import org.nasdanika.models.ecore.graph.processors.EcoreHtmlAppGenerator;
 
 /**
  * Tests Ecore -> Graph -> Processor -> actions generation
@@ -38,7 +38,7 @@ public class TestComputeModelDocGen {
 		actionModelsDir.mkdirs();
 		File output = new File(actionModelsDir, "compute-graph.xmi");
 			
-		EcoreActionGenerator actionGenerator = EcoreActionGenerator.loadEcoreActionGenerator(
+		EcoreHtmlAppGenerator htmlAppGenerator = EcoreHtmlAppGenerator.loadEcoreHtmlAppGenerator(
 				ComputePackage.eINSTANCE, 
 				context, 
 				null, 
@@ -47,7 +47,7 @@ public class TestComputeModelDocGen {
 				diagnosticConsumer,
 				progressMonitor); 
 						
-		actionGenerator.generateActionModel(diagnosticConsumer, output, progressMonitor);
+		htmlAppGenerator.generateHtmlAppModel(diagnosticConsumer, output, progressMonitor);
 				
 		String rootActionResource = "actions.yml";
 		URI rootActionURI = URI.createFileURI(new File(rootActionResource).getAbsolutePath());//.appendFragment("/");
