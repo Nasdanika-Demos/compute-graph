@@ -11,7 +11,7 @@ app-action:
         content:
           content-interpolator:
             source:
-              content-resource: classpath://org/nasdanika/html/model/app/gen/search.html
+              content-resource: classpath://org/nasdanika/models/app/gen/search.html
     - app-action:
         location: ${base-uri}glossary.html
         icon: fas fa-book
@@ -19,7 +19,7 @@ app-action:
         content:
           content-interpolator:
             source:
-              content-resource: classpath://org/nasdanika/html/model/app/gen/semantic-info.html
+              content-resource: classpath://org/nasdanika/models/app/gen/semantic-info.html
   navigation:
     - app-action:
         location: https://github.com/Nasdanika-Demos/compute-graph

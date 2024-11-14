@@ -7,6 +7,7 @@ import java.util.function.BiFunction;
 
 import org.nasdanika.capability.CapabilityFactory;
 import org.nasdanika.capability.CapabilityProvider;
+import org.nasdanika.capability.CapabilityFactory.Loader;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.graph.processor.CapabilityProcessorFactory.ProcessorRequirement;
 import org.nasdanika.graph.processor.ReflectiveProcessorServiceFactory.ReflectiveProcessorFactoryProviderTargetRequirement;
@@ -30,7 +31,7 @@ public class SyncCapabilityFactory implements CapabilityFactory<ReflectiveProces
 	@Override
 	public CompletionStage<Iterable<CapabilityProvider<Object>>> create(
 			ReflectiveProcessorFactoryProviderTargetRequirement<Object, BiFunction<Object, ProgressMonitor, Object>> requirement,
-			BiFunction<Object, ProgressMonitor, CompletionStage<Iterable<CapabilityProvider<Object>>>> resolver,
+			Loader loader, 
 			ProgressMonitor progressMonitor) {
 		
 		return CompletableFuture.completedStage(Collections.singleton(CapabilityProvider.of(new SyncProcessorFactory())));	

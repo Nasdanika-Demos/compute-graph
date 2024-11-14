@@ -8,8 +8,8 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.Reference;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
-import org.nasdanika.html.model.app.Action;
-import org.nasdanika.html.model.app.graph.WidgetFactory;
+import org.nasdanika.models.app.Action;
+import org.nasdanika.models.app.graph.WidgetFactory;
 
 public class ReferenceNodeProcessor extends OperandNodeProcessor<Reference> {
 

@@ -3,12 +3,11 @@ package org.nasdanika.demos.graph.compute.processors.doc;
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-import java.util.function.BiFunction;
 
 import org.nasdanika.capability.CapabilityFactory;
 import org.nasdanika.capability.CapabilityProvider;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.html.model.app.graph.emf.HtmlAppGenerator.NodeProcessorFactoryRequirement;
+import org.nasdanika.models.app.graph.emf.HtmlAppGenerator.NodeProcessorFactoryRequirement;
 
 import reactor.core.publisher.Flux;
 
@@ -22,7 +21,7 @@ public class ComputeNodeProcessorFactoryCapabilityFactory implements CapabilityF
 	@Override
 	public CompletionStage<Iterable<CapabilityProvider<Object>>> create(
 			NodeProcessorFactoryRequirement requirement,
-			BiFunction<Object, ProgressMonitor, CompletionStage<Iterable<CapabilityProvider<Object>>>> resolver,
+			Loader loader, 
 			ProgressMonitor progressMonitor) {
 
 		ComputeNodeProcessorFactory factory = new ComputeNodeProcessorFactory(requirement.context(), requirement.prototypeProvider());

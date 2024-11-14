@@ -15,10 +15,10 @@ import org.nasdanika.demos.graph.compute.ComputePackage;
 import org.nasdanika.demos.graph.compute.Operator;
 import org.nasdanika.graph.emf.EReferenceConnection;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
-import org.nasdanika.html.model.app.Action;
-import org.nasdanika.html.model.app.Label;
-import org.nasdanika.html.model.app.graph.WidgetFactory;
-import org.nasdanika.html.model.app.graph.emf.OutgoingReferenceBuilder;
+import org.nasdanika.models.app.Action;
+import org.nasdanika.models.app.Label;
+import org.nasdanika.models.app.graph.WidgetFactory;
+import org.nasdanika.models.app.graph.emf.OutgoingReferenceBuilder;
 
 
 public class OperatorNodeProcessor<T extends Operator> extends OperandNodeProcessor<T> {

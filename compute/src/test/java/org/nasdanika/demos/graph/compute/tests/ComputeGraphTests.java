@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.capability.CapabilityLoader;
-import org.nasdanika.capability.CapabilityProvider;
 import org.nasdanika.capability.ServiceCapabilityFactory;
 import org.nasdanika.capability.ServiceCapabilityFactory.Requirement;
 import org.nasdanika.capability.emf.ResourceSetRequirement;
@@ -21,7 +20,6 @@ import org.nasdanika.common.Context;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Transformer;
-import org.nasdanika.emf.SpecLoadingDrawioResourceFactory;
 import org.nasdanika.graph.emf.EObjectGraphFactory;
 import org.nasdanika.graph.emf.EObjectNode;
 import org.nasdanika.graph.processor.CapabilityProcessorFactory;
@@ -103,19 +101,16 @@ public class ComputeGraphTests {
 		CapabilityLoader capabilityLoader = new CapabilityLoader();
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		Requirement<ResourceSetRequirement, ResourceSet> requirement = ServiceCapabilityFactory.createRequirement(ResourceSet.class);		
-		for (CapabilityProvider<?> cp: capabilityLoader.load(requirement, progressMonitor)) {
-			ResourceSet resourceSet = (ResourceSet) cp.getPublisher().blockFirst();
-			resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("drawio", new SpecLoadingDrawioResourceFactory(uri -> resourceSet.getEObject(uri, true)));
-			File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
-			Resource resource = resourceSet.getResource(URI.createFileURI(diagramFile.getAbsolutePath()), true);			
-			EObject root = resource.getContents().get(0);			
-			Context context = Context.EMPTY_CONTEXT;
-			
-			NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>> processorInfo = (NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>>) createCapabilityProcessor(root, null, context, progressMonitor);
-			BiFunction<Object, ProgressMonitor, Object> processor = processorInfo.getProcessor();
-			Object result = processor.apply("Hello", progressMonitor);
-			System.out.println(result);
-		}
+		ResourceSet resourceSet = capabilityLoader.loadOne(requirement, progressMonitor);
+		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
+		Resource resource = resourceSet.getResource(URI.createFileURI(diagramFile.getAbsolutePath()), true);			
+		EObject root = resource.getContents().get(0);			
+		Context context = Context.EMPTY_CONTEXT;
+		
+		NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>> processorInfo = (NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>>) createCapabilityProcessor(root, null, context, progressMonitor);
+		BiFunction<Object, ProgressMonitor, Object> processor = processorInfo.getProcessor();
+		Object result = processor.apply("Hello", progressMonitor);
+		System.out.println(result);
 	}
 		
 	protected ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>> createCapabilityProcessor(EObject root, Object requirement, Context context, ProgressMonitor progressMonitor) {

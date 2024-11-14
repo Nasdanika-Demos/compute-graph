@@ -3,6 +3,7 @@ package org.nasdanika.demos.graph.compute.generator.tests;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Consumer;
@@ -18,7 +19,7 @@ import org.nasdanika.common.NullProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.ComputePackage;
 import org.nasdanika.html.bootstrap.Theme;
-import org.nasdanika.html.model.app.gen.AppSiteGenerator;
+import org.nasdanika.models.app.gen.AppSiteGenerator;
 import org.nasdanika.models.ecore.graph.processors.EcoreHtmlAppGenerator;
 
 /**
@@ -39,7 +40,7 @@ public class TestComputeModelDocGen {
 		File output = new File(actionModelsDir, "compute-graph.xmi");
 			
 		EcoreHtmlAppGenerator htmlAppGenerator = EcoreHtmlAppGenerator.loadEcoreHtmlAppGenerator(
-				ComputePackage.eINSTANCE, 
+				Collections.singleton(ComputePackage.eINSTANCE), 
 				context, 
 				null, 
 				null, 

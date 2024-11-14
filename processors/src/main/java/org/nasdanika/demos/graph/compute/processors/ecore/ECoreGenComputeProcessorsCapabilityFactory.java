@@ -3,7 +3,6 @@ package org.nasdanika.demos.graph.compute.processors.ecore;
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-import java.util.function.BiFunction;
 
 import org.nasdanika.capability.CapabilityFactory;
 import org.nasdanika.capability.CapabilityProvider;
@@ -19,8 +18,8 @@ public class ECoreGenComputeProcessorsCapabilityFactory implements CapabilityFac
 
 	@Override
 	public CompletionStage<Iterable<CapabilityProvider<Object>>> create(
-			TargetRequirement requirement,
-			BiFunction<Object, ProgressMonitor, CompletionStage<Iterable<CapabilityProvider<Object>>>> resolver,
+			TargetRequirement requirement, 
+			Loader loader,
 			ProgressMonitor progressMonitor) {
 		
 		return CompletableFuture.completedStage(

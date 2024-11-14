@@ -30,7 +30,7 @@ public class SyncCapabilityFactory implements CapabilityFactory<ReflectiveProces
 	@Override
 	public CompletionStage<Iterable<CapabilityProvider<Object>>> create(
 			ReflectiveProcessorFactoryProviderTargetRequirement<Object, BiFunction<Object, ProgressMonitor, Object>> requirement,
-			BiFunction<Object, ProgressMonitor, CompletionStage<Iterable<CapabilityProvider<Object>>>> resolver,
+			Loader loader, 
 			ProgressMonitor progressMonitor) {
 		
 		return CompletableFuture.completedStage(Collections.singleton(CapabilityProvider.of(new SyncProcessorFactory())));	
