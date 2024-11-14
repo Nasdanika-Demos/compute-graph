@@ -1,0 +1,4 @@
+# Mapping of the "2" literal node in the parse tree
+type: Literal
+configuration:
+  value: 2

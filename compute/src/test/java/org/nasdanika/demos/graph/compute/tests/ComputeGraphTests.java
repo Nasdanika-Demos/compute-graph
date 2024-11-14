@@ -1,5 +1,8 @@
 package org.nasdanika.demos.graph.compute.tests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -103,7 +106,8 @@ public class ComputeGraphTests {
 		Requirement<ResourceSetRequirement, ResourceSet> requirement = ServiceCapabilityFactory.createRequirement(ResourceSet.class);		
 		ResourceSet resourceSet = capabilityLoader.loadOne(requirement, progressMonitor);
 		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
-		Resource resource = resourceSet.getResource(URI.createFileURI(diagramFile.getAbsolutePath()), true);			
+		Resource resource = resourceSet.getResource(URI.createFileURI(diagramFile.getAbsolutePath()), true);		
+		assertEquals(1, resource.getContents().size()); // Single root
 		EObject root = resource.getContents().get(0);			
 		Context context = Context.EMPTY_CONTEXT;
 		
