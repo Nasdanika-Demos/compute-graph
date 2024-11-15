@@ -20,7 +20,7 @@ public class MultiplicationProcessor implements BiFunction<Object, ProgressMonit
 	@Override
 	public Object apply(Object arg, ProgressMonitor progressMonitor) {
 		double ret = 1; 
-		for (BiFunction<Object, ProgressMonitor, Object> e: outgoingEndpoints) {
+		for (BiFunction<Object, ProgressMonitor, Object> e: outgoingEndpoints) {			
 			ret *=  (double) e.apply(arg, progressMonitor);
 		}
 		return ret;

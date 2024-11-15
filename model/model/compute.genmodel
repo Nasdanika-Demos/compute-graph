@@ -9,7 +9,9 @@
   <foreignModel>compute.ecore</foreignModel>
   <genPackages prefix="Compute" basePackage="org.nasdanika.demos.graph" disposableProviderFactory="true"
       ecorePackage="compute.ecore#/">
-    <genClasses ecoreClass="compute.ecore#//Operand"/>
+    <genClasses ecoreClass="compute.ecore#//Operand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute compute.ecore#//Operand/source"/>
+    </genClasses>
     <genClasses ecoreClass="compute.ecore#//Operator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference compute.ecore#//Operator/operands"/>
     </genClasses>

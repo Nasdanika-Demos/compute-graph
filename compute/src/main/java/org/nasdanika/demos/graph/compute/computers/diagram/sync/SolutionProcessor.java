@@ -21,7 +21,7 @@ public class SolutionProcessor implements BiFunction<Object, ProgressMonitor, Ob
 	@Override
 	public Object apply(Object arg, ProgressMonitor progressMonitor) {
 		Map<BiFunction<Object, ProgressMonitor, Object>, Object> outgoingEndpointsResults = new LinkedHashMap<>();
-		CartesianNodeComparator comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown, new LabelModelElementComparator(false));
+		CartesianNodeComparator comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown, new LabelModelElementComparator());
 		for (BiFunction<Object, ProgressMonitor, Object> e: outgoingEndpoints.entrySet().stream().sorted((a,b) -> comparator.compare(a.getKey().getTarget(), b.getKey().getTarget())).map(Map.Entry::getValue).toList()) {
 			outgoingEndpointsResults.put(e, e.apply(arg, progressMonitor));
 		}

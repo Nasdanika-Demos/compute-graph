@@ -7,7 +7,6 @@ import java.util.function.BiFunction;
 
 import org.nasdanika.capability.CapabilityFactory;
 import org.nasdanika.capability.CapabilityProvider;
-import org.nasdanika.capability.CapabilityFactory.Loader;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.graph.processor.CapabilityProcessorFactory.ProcessorRequirement;
 import org.nasdanika.graph.processor.ReflectiveProcessorServiceFactory.ReflectiveProcessorFactoryProviderTargetRequirement;

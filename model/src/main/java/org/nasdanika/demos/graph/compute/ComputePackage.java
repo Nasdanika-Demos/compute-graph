@@ -70,13 +70,22 @@ public interface ComputePackage extends EPackage {
 	int OPERAND = 0;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERAND__SOURCE = 0;
+
+	/**
 	 * The number of structural features of the '<em>Operand</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERAND_FEATURE_COUNT = 0;
+	int OPERAND_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Operand</em>' class.
@@ -96,6 +105,15 @@ public interface ComputePackage extends EPackage {
 	 * @generated
 	 */
 	int OPERATOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__SOURCE = OPERAND__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
@@ -135,6 +153,15 @@ public interface ComputePackage extends EPackage {
 	int ASSIGNMENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGNMENT__SOURCE = OPERATOR__SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,6 +197,15 @@ public interface ComputePackage extends EPackage {
 	 * @generated
 	 */
 	int MULTIPLICATION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICATION__SOURCE = OPERATOR__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
@@ -209,6 +245,15 @@ public interface ComputePackage extends EPackage {
 	int LITERAL = 4;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LITERAL__SOURCE = OPERAND__SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +291,15 @@ public interface ComputePackage extends EPackage {
 	int VARIABLE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__SOURCE = OPERAND__SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -281,6 +335,15 @@ public interface ComputePackage extends EPackage {
 	 * @generated
 	 */
 	int REFERENCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__SOURCE = OPERAND__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -328,6 +391,17 @@ public interface ComputePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOperand();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.demos.graph.compute.Operand#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source</em>'.
+	 * @see org.nasdanika.demos.graph.compute.Operand#getSource()
+	 * @see #getOperand()
+	 * @generated
+	 */
+	EAttribute getOperand_Source();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.demos.graph.compute.Operator <em>Operator</em>}'.
@@ -476,6 +550,14 @@ public interface ComputePackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPERAND = eINSTANCE.getOperand();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERAND__SOURCE = eINSTANCE.getOperand_Source();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.demos.graph.compute.impl.OperatorImpl <em>Operator</em>}' class.

@@ -1,19 +1,21 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
   <diagram id="C_46PfyABaP8grpVP24J" name="Parse Tree">
-    <mxGraphModel dx="1434" dy="884" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1158" dy="1010" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
       <root>
         <object label="" id="0">
           <mxCell />
         </object>
         <mxCell id="1" parent="0" />
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down&#xa;" id="APVoGTpeWAH_w8hecpKW-12">
-          <mxCell style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="solution" target="APVoGTpeWAH_w8hecpKW-3" edge="1">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-12">
+          <mxCell style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="solution" target="first-assignment" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-13">
-          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="1" source="solution" target="APVoGTpeWAH_w8hecpKW-11" edge="1">
-            <mxGeometry relative="1" as="geometry" />
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-13">
+          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="1" source="solution" target="second-assignment" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="370" y="160" as="targetPoint" />
+            </mxGeometry>
           </mxCell>
         </object>
         <object label="Solution" mapping="type: Operator&#xa;page-element: true" id="solution">
@@ -21,17 +23,17 @@
             <mxGeometry x="230" y="150" width="50" height="50" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-14">
-          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="APVoGTpeWAH_w8hecpKW-3" target="APVoGTpeWAH_w8hecpKW-5" edge="1">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-14">
+          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="first-assignment" target="APVoGTpeWAH_w8hecpKW-5" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-15">
-          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="APVoGTpeWAH_w8hecpKW-3" target="APVoGTpeWAH_w8hecpKW-4" edge="1">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-15">
+          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="first-assignment" target="APVoGTpeWAH_w8hecpKW-4" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="=" mapping="type: Assignment" id="APVoGTpeWAH_w8hecpKW-3">
+        <object label="=" mapping="type: Assignment&#xa;configuration:&#xa;  source: %id%" placeholders="1" id="first-assignment">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
             <mxGeometry x="130" y="230" width="50" height="50" as="geometry" />
           </mxCell>
@@ -46,7 +48,7 @@
             <mxGeometry x="80" y="310" width="50" height="50" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: variable" id="APVoGTpeWAH_w8hecpKW-20">
+        <object label="" mapping="features:&#xa;  source: variable" id="APVoGTpeWAH_w8hecpKW-20">
           <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;dashed=1;strokeColor=#0000FF;" parent="1" source="APVoGTpeWAH_w8hecpKW-7" target="APVoGTpeWAH_w8hecpKW-5" edge="1">
             <mxGeometry relative="1" as="geometry">
               <Array as="points">
@@ -62,14 +64,14 @@
             <mxGeometry x="430" y="390" width="50" height="50" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-18">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-18">
           <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="APVoGTpeWAH_w8hecpKW-9" target="dC14Jt2gQnxt7rOImr83-5" edge="1">
             <mxGeometry relative="1" as="geometry">
               <mxPoint x="368.2499735000795" y="393.80004239987215" as="targetPoint" />
             </mxGeometry>
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-19">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-19">
           <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="APVoGTpeWAH_w8hecpKW-9" target="APVoGTpeWAH_w8hecpKW-7" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
@@ -84,22 +86,22 @@
             <mxGeometry x="280" y="310" width="50" height="50" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-16">
-          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="APVoGTpeWAH_w8hecpKW-11" target="APVoGTpeWAH_w8hecpKW-10" edge="1">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-16">
+          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="second-assignment" target="APVoGTpeWAH_w8hecpKW-10" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="APVoGTpeWAH_w8hecpKW-17">
-          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="APVoGTpeWAH_w8hecpKW-11" target="APVoGTpeWAH_w8hecpKW-9" edge="1">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="APVoGTpeWAH_w8hecpKW-17">
+          <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="second-assignment" target="APVoGTpeWAH_w8hecpKW-9" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="=" mapping="type: Assignment" id="APVoGTpeWAH_w8hecpKW-11">
+        <object label="=" mapping="type: Assignment&#xa;configuration:&#xa;  source: %id%" placeholders="1" id="second-assignment">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
             <mxGeometry x="330" y="230" width="50" height="50" as="geometry" />
           </mxCell>
         </object>
-        <object label="π" placeholders="1" mapping="type: Variable&#xa;configuration:&#xa;  name: %label%" id="dC14Jt2gQnxt7rOImr83-1">
+        <object label="π" placeholders="1" mapping="type: Literal&#xa;configuration:&#xa;  value: %label%" id="dC14Jt2gQnxt7rOImr83-1">
           <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
             <mxGeometry x="375" y="470" width="50" height="50" as="geometry" />
           </mxCell>
@@ -109,12 +111,12 @@
             <mxGeometry x="275" y="470" width="50" height="50" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="dC14Jt2gQnxt7rOImr83-3">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="dC14Jt2gQnxt7rOImr83-3">
           <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dC14Jt2gQnxt7rOImr83-5" target="dC14Jt2gQnxt7rOImr83-2" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>
         </object>
-        <object label="" feature-map="source: &#xa;  operands:&#xa;    comparator: right-down" id="dC14Jt2gQnxt7rOImr83-4">
+        <object label="" mapping="features:&#xa;  source: &#xa;    operands:&#xa;      comparator: right-down" id="dC14Jt2gQnxt7rOImr83-4">
           <mxCell style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="dC14Jt2gQnxt7rOImr83-5" target="dC14Jt2gQnxt7rOImr83-1" edge="1">
             <mxGeometry relative="1" as="geometry" />
           </mxCell>

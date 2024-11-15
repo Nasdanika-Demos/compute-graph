@@ -10,7 +10,7 @@ import org.nasdanika.graph.processor.IncomingHandler;
  */
 public class VariableProcessor implements BiFunction<Object, ProgressMonitor, Object> {
 	
-	private double value;
+	private Double value;
 	
 	@Override
 	public Object apply(Object arg, ProgressMonitor progressMonitor) {

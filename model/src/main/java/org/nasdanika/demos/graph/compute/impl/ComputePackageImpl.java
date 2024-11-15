@@ -151,6 +151,16 @@ public class ComputePackageImpl extends EPackageImpl implements ComputePackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getOperand_Source() {
+		return (EAttribute)operandEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -285,6 +295,7 @@ public class ComputePackageImpl extends EPackageImpl implements ComputePackage {
 
 		// Create classes and their features
 		operandEClass = createEClass(OPERAND);
+		createEAttribute(operandEClass, OPERAND__SOURCE);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEReference(operatorEClass, OPERATOR__OPERANDS);
@@ -341,6 +352,7 @@ public class ComputePackageImpl extends EPackageImpl implements ComputePackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(operandEClass, Operand.class, "Operand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOperand_Source(), ecorePackage.getEString(), "source", null, 0, 1, Operand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operatorEClass, Operator.class, "Operator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperator_Operands(), this.getOperand(), null, "operands", null, 0, -1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

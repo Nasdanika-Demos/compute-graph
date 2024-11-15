@@ -1,7 +1,6 @@
 package org.nasdanika.demos.graph.compute.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +13,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.capability.ServiceCapabilityFactory;
@@ -108,9 +108,14 @@ public class ComputeGraphTests {
 		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
 		Resource resource = resourceSet.getResource(URI.createFileURI(diagramFile.getAbsolutePath()), true);		
 		assertEquals(1, resource.getContents().size()); // Single root
-		EObject root = resource.getContents().get(0);			
-		Context context = Context.EMPTY_CONTEXT;
+		EObject root = resource.getContents().get(0);	
 		
+		URI xmiURI = URI.createFileURI(new File("target/compute-graph.xml").getAbsolutePath());
+		Resource xmiResource = resourceSet.createResource(xmiURI);
+		xmiResource.getContents().add(EcoreUtil.copy(root));
+		xmiResource.save(null);		
+		
+		Context context = Context.EMPTY_CONTEXT;		
 		NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>> processorInfo = (NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>>) createCapabilityProcessor(root, null, context, progressMonitor);
 		BiFunction<Object, ProgressMonitor, Object> processor = processorInfo.getProcessor();
 		Object result = processor.apply("Hello", progressMonitor);
