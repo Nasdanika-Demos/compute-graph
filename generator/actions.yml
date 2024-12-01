@@ -1,27 +1,27 @@
-app-action:
+app.Action:
   icon: https://docs.nasdanika.org/images/nasdanika-logo.png
   text: Nasdanika Demos
   location: https://github.com/Nasdanika-Demos
   children:
-    - app-action-reference: "target/action-models/compute-graph.xmi#/"
-    - app-action:
+    - app.ActionReference: "target/action-models/compute-graph.xmi#/"
+    - app.Action:
         location: ${base-uri}search.html
         icon: fas fa-search
         text: Search
         content:
-          content-interpolator:
+          content.Interpolator:
             source:
-              content-resource: classpath://org/nasdanika/models/app/gen/search.html
-    - app-action:
+              content.Resource: classpath://org/nasdanika/models/app/gen/search.html
+    - app.Action:
         location: ${base-uri}glossary.html
         icon: fas fa-book
         text: Glossary
         content:
-          content-interpolator:
+          content.Interpolator:
             source:
-              content-resource: classpath://org/nasdanika/models/app/gen/semantic-info.html
+              content.Resource: classpath://org/nasdanika/models/app/gen/semantic-info.html
   navigation:
-    - app-action:
+    - app.Action:
         location: https://github.com/Nasdanika-Demos/compute-graph
         icon: fab fa-github
         text: Sources
