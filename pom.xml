@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.demos.compute-graph</groupId>
 	<artifactId>parent</artifactId>
-	<version>2024.12.0</version>
+	<version>2025.1.0</version>
 	<packaging>pom</packaging>
 	<name>Compute graph demo</name>
 	<description>Compute model and node processors to calculate circumference using a parse graph</description>
@@ -23,9 +23,9 @@
 	<url>https://github.com/Nasdanika-Models/architecture</url>
 
 	<properties>
-		<core.version>2024.12.0</core.version>
-		<html.version>2024.12.0</html.version>
-		<models.ecore.version>2024.12.0</models.ecore.version>
+		<core.version>2025.1.0</core.version>
+		<html.version>2025.1.0</html.version>
+		<models.ecore.version>2025.1.0</models.ecore.version>
 		<jacoco.version>0.8.12</jacoco.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
