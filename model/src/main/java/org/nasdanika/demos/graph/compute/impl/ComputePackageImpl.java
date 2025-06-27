@@ -377,6 +377,8 @@ public class ComputePackageImpl extends EPackageImpl implements ComputePackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/GenModel
 		createGenModelAnnotations();
+		// urn:org.nasdanika
+		createUrnorgAnnotations();
 	}
 
 	/**
@@ -392,6 +394,22 @@ public class ComputePackageImpl extends EPackageImpl implements ComputePackage {
 		   source,
 		   new String[] {
 			   "documentation", "Compute graph demo classes"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>urn:org.nasdanika</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createUrnorgAnnotations() {
+		String source = "urn:org.nasdanika";
+		addAnnotation
+		  (literalEClass,
+		   source,
+		   new String[] {
+			   "graph-node-size", "50"
 		   });
 	}
 

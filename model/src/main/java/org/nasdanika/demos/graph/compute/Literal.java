@@ -16,7 +16,7 @@ package org.nasdanika.demos.graph.compute;
  * </ul>
  *
  * @see org.nasdanika.demos.graph.compute.ComputePackage#getLiteral()
- * @model
+ * @model annotation="urn:org.nasdanika graph-node-size='50'"
  * @generated
  */
 public interface Literal extends Operand {

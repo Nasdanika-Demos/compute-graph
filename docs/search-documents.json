@@ -1,190 +1,190 @@
 {
   "references/eClassifiers/Literal/index.html": {
-    "link-uuid": "a69b4e66-4264-4353-9ddb-c71daa45135a",
+    "link-uuid": "2f307938-7a87-406e-a56f-5e8000834f93",
     "title": "Literal",
     "content": "A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, differ widely among cultures and contexts. In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: both about what makes any particular person that particular person instead of another, and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes. The plural form &ldquo;people&rdquo; is often used to refer to an entire nation or ethnic group (as in &ldquo;a people&rdquo;), and this was the original meaning of the word; it subsequently acquired its use as a plural form of person. The plural form &ldquo;persons&rdquo; is often used in philosophical and legal writing.",
-    "timestamp": 1747672260783
+    "timestamp": 1751062551785
   },
   "references/eClassifiers/Operator/references/eStructuralFeatures/operands/load-specification.html": {
     "path": "Operator/References/Members/Load specification",
-    "link-uuid": "b49da0f4-bc07-4e7d-8bf8-1e60738dc834",
+    "link-uuid": "d3fcfdc9-7e60-439a-b7b4-bec3113f63b8",
     "title": "Load specification",
     "content": "Load Key operands Default Multiplicity Homogeneous Strict Containment Exclusive With Description Some documentation: key: value",
-    "timestamp": 1747672260849
+    "timestamp": 1751062551829
   },
   "references/eClassifiers/Operator/index.html": {
-    "link-uuid": "e930bd29-eb40-43f2-b677-e441da641701",
+    "link-uuid": "ecb99522-023c-4445-ab25-fd1a2ad81f9a",
     "title": "Operator",
     "content": "A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, differ widely among cultures and contexts. In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: both about what makes any particular person that particular person instead of another, and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes. The plural form &ldquo;people&rdquo; is often used to refer to an entire nation or ethnic group (as in &ldquo;a people&rdquo;), and this was the original meaning of the word; it subsequently acquired its use as a plural form of person. The plural form &ldquo;persons&rdquo; is often used in philosophical and legal writing.",
-    "timestamp": 1747672260841
+    "timestamp": 1751062551824
   },
   "references/eClassifiers/Operand/inheritance.html": {
     "path": "Operand/Inheritance",
-    "link-uuid": "732a1fa7-165b-4aff-be6a-0a7ebd1d99d3",
+    "link-uuid": "fd5ddbdd-2448-478c-8114-0f1a3aa81e12",
     "title": "Inheritance",
     "content": "Subtypes ",
-    "timestamp": 1747672260825
+    "timestamp": 1751062551812
   },
   "references/eClassifiers/Assignment/inheritance.html": {
     "path": "Assignment/Inheritance",
-    "link-uuid": "08f7d771-4350-40b8-9ad0-719553971151",
+    "link-uuid": "87301285-87c2-40f7-9f99-1144cd444efa",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1747672260766
+    "timestamp": 1751062551773
   },
   "references/eClassifiers/Operator/references/eStructuralFeatures/operands/index.html": {
     "path": "Operator/References/Members",
-    "link-uuid": "f76fa267-9dc2-49e8-b7a0-f5d58170e1b7",
+    "link-uuid": "457bdff2-4031-462f-a04c-5093d0f8f44f",
     "title": "Members",
     "content": "Type Operand Multiplicity 0..* Some documentation about family members reference",
-    "timestamp": 1747672260847
+    "timestamp": 1751062551828
   },
   "references/eClassifiers/Multiplication/inheritance.html": {
     "path": "Multiplication/Inheritance",
-    "link-uuid": "ba39c710-21da-4abf-a7cd-10f7662562a6",
+    "link-uuid": "4358c18b-c3e0-4278-b09d-636f5f9fee46",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1747672260805
+    "timestamp": 1751062551799
   },
   "references/eClassifiers/Operand/references/eStructuralFeatures/source/index.html": {
     "path": "Operand/Attributes/source",
-    "link-uuid": "a3d9e02f-9ded-4e63-a164-4e2f1b6c7347",
+    "link-uuid": "a01992d6-28b7-4031-b7b7-c6f23a2fd824",
     "title": "source",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1747672260829
+    "timestamp": 1751062551816
   },
   "index.html": {
-    "link-uuid": "6838a152-8041-46f4-a194-c02fe3e7e927",
+    "link-uuid": "135eab9f-5d1c-47af-83f9-8f64f7958288",
     "title": "Compute Model",
     "content": "Family model is used to demonstrate different Nasdanika technologies such as: Generating of metamodel (Ecore) documentation like this one Loading of models from MS Excel and Drawio diagrams Generation of HTML sites from loaded models The model was created to mimic the model from Eclipse Sirius Basic Family tutorial. This site uses fee icons from Icons8 and quotes Wikipedia articles. The diagram below is interactive: Hover the mouse pointer over the shapes and connections to see tooltips Click on the shapes and connections to navigate to the pages of the respective model elements. Compute graph demo classes",
-    "timestamp": 1747672260749
+    "timestamp": 1751062551761
   },
   "references/eClassifiers/Multiplication/load-specification.html": {
     "path": "Multiplication/Load specification",
-    "link-uuid": "b63e317c-4c16-4776-8d89-a077b9d7f5f3",
+    "link-uuid": "16538c49-a38b-47f2-8f8f-f3f302f354bf",
     "title": "Load specification",
     "content": "Some documentation: key: value",
-    "timestamp": 1747672260807
+    "timestamp": 1751062551800
   },
   "references/eClassifiers/Literal/load-specification.html": {
     "path": "Literal/Load specification",
-    "link-uuid": "d160368b-dc7a-49a6-8806-d509dd4a0ebf",
+    "link-uuid": "b3482314-eff9-4608-9c9c-5c30cf9dde90",
     "title": "Load specification",
     "content": "Some documentation: key: value",
-    "timestamp": 1747672260787
+    "timestamp": 1751062551788
   },
   "references/eClassifiers/Literal/inheritance.html": {
     "path": "Literal/Inheritance",
-    "link-uuid": "ee6ad4ab-fd2d-4432-a2aa-9b4445526feb",
+    "link-uuid": "fa6a076a-ffb1-4a22-b8bf-362db4a2d598",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1747672260785
+    "timestamp": 1751062551787
   },
   "references/eClassifiers/Literal/references/eStructuralFeatures/value/index.html": {
     "path": "Literal/Attributes/value",
-    "link-uuid": "2c1f5e27-447b-4748-9020-5123a5a08576",
+    "link-uuid": "6d82fe98-b03f-47eb-b408-5909079ea805",
     "title": "value",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1747672260790
+    "timestamp": 1751062551789
   },
   "references/eClassifiers/Multiplication/index.html": {
-    "link-uuid": "fcc3be48-b949-465f-b241-d7ef3571f3c5",
+    "link-uuid": "a7a3bc98-fd59-41a9-831d-c0d640dba2b6",
     "title": "Multiplication",
     "content": "A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, differ widely among cultures and contexts. In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: both about what makes any particular person that particular person instead of another, and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes. The plural form &ldquo;people&rdquo; is often used to refer to an entire nation or ethnic group (as in &ldquo;a people&rdquo;), and this was the original meaning of the word; it subsequently acquired its use as a plural form of person. The plural form &ldquo;persons&rdquo; is often used in philosophical and legal writing.",
-    "timestamp": 1747672260801
+    "timestamp": 1751062551797
   },
   "references/eClassifiers/Operator/load-specification.html": {
     "path": "Operator/Load specification",
-    "link-uuid": "e62f5f0b-1ed3-42a2-95bd-d1910c206264",
+    "link-uuid": "b7a8f938-0654-4660-a3b8-73e09af0184a",
     "title": "Load specification",
     "content": "Some documentation: key: value",
-    "timestamp": 1747672260844
+    "timestamp": 1751062551826
   },
   "references/eClassifiers/Variable/inheritance.html": {
     "path": "Variable/Inheritance",
-    "link-uuid": "d73c1636-b0c1-41f9-8408-547283c7381f",
+    "link-uuid": "c9e7c8c7-08cc-4a6d-b231-de5c925b75dc",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1747672260886
+    "timestamp": 1751062551856
   },
   "references/eClassifiers/Variable/index.html": {
-    "link-uuid": "2665c221-d751-474e-acae-f5c2e9246160",
+    "link-uuid": "597e5623-3ab3-4ac2-9022-ec1c7f4cf791",
     "title": "Variable",
     "content": "A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, differ widely among cultures and contexts. In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: both about what makes any particular person that particular person instead of another, and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes. The plural form &ldquo;people&rdquo; is often used to refer to an entire nation or ethnic group (as in &ldquo;a people&rdquo;), and this was the original meaning of the word; it subsequently acquired its use as a plural form of person. The plural form &ldquo;persons&rdquo; is often used in philosophical and legal writing.",
-    "timestamp": 1747672260884
+    "timestamp": 1751062551855
   },
   "references/eClassifiers/Operand/index.html": {
-    "link-uuid": "8b1d98a7-209e-4bb5-8aab-3713dcd1ad43",
+    "link-uuid": "1bd8320f-d2bb-4137-a6ab-e598877ceb2c",
     "title": "Operand",
     "content": "A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, differ widely among cultures and contexts. In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: both about what makes any particular person that particular person instead of another, and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes. The plural form &ldquo;people&rdquo; is often used to refer to an entire nation or ethnic group (as in &ldquo;a people&rdquo;), and this was the original meaning of the word; it subsequently acquired its use as a plural form of person. The plural form &ldquo;persons&rdquo; is often used in philosophical and legal writing.",
-    "timestamp": 1747672260823
+    "timestamp": 1751062551810
   },
   "references/eClassifiers/Reference/load-specification.html": {
     "path": "Reference/Load specification",
-    "link-uuid": "3a3ec0bb-b753-48d2-88a9-bb44905515dc",
+    "link-uuid": "979063cf-c4e4-4998-861a-88f8b61f818f",
     "title": "Load specification",
     "content": "Some documentation: key: value",
-    "timestamp": 1747672260865
+    "timestamp": 1751062551841
   },
   "references/eClassifiers/Assignment/index.html": {
-    "link-uuid": "6f1364b6-c576-42e6-98db-3def81e6fdd8",
+    "link-uuid": "c4b67e65-f9fb-4bef-8c55-08153bb6b99b",
     "title": "Assignment",
     "content": "Assigns the value of its right-hand operand (index 1) to a its left-hand operand (index 0), which should be a variable.",
-    "timestamp": 1747672260764
+    "timestamp": 1751062551771
   },
   "references/eClassifiers/Operator/inheritance.html": {
     "path": "Operator/Inheritance",
-    "link-uuid": "b8c5bbdd-a69a-4d23-a966-a1a5e22318e1",
+    "link-uuid": "8161d56c-466b-4c79-91cf-79b982c1dd26",
     "title": "Inheritance",
     "content": "Supertypes Subtypes  ",
-    "timestamp": 1747672260843
+    "timestamp": 1751062551825
   },
   "references/eClassifiers/Reference/references/eStructuralFeatures/name/index.html": {
     "path": "Reference/Attributes/name",
-    "link-uuid": "38548d55-c8fa-40b2-a465-dcd76796e7b1",
+    "link-uuid": "991db175-100f-4c0c-9c64-ca7aa14fea6b",
     "title": "name",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1747672260868
+    "timestamp": 1751062551843
   },
   "references/eClassifiers/Reference/index.html": {
-    "link-uuid": "602b5b9f-5c5f-40cd-9fc9-797f01f08a44",
+    "link-uuid": "d73f433a-37b3-4095-b800-e84455f61745",
     "title": "Reference",
     "content": "A person (pl.: people or persons, depending on context) is a being who has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility. The defining features of personhood and, consequently, what makes a person count as a person, differ widely among cultures and contexts. In addition to the question of personhood, of what makes a being count as a person to begin with, there are further questions about personal identity and self: both about what makes any particular person that particular person instead of another, and about what makes a person at one time the same person as they were or will be at another time despite any intervening changes. The plural form &ldquo;people&rdquo; is often used to refer to an entire nation or ethnic group (as in &ldquo;a people&rdquo;), and this was the original meaning of the word; it subsequently acquired its use as a plural form of person. The plural form &ldquo;persons&rdquo; is often used in philosophical and legal writing.",
-    "timestamp": 1747672260862
+    "timestamp": 1751062551839
   },
   "references/eClassifiers/Operand/load-specification.html": {
     "path": "Operand/Load specification",
-    "link-uuid": "50f8cbf8-f94d-468e-bc03-ee007a054d30",
+    "link-uuid": "1ad81509-c1f8-41ce-9db1-fb0a7884ad7c",
     "title": "Load specification",
     "content": "Some documentation: key: value",
-    "timestamp": 1747672260826
+    "timestamp": 1751062551813
   },
   "references/eClassifiers/Reference/references/eStructuralFeatures/variable/index.html": {
     "path": "Reference/References/variable",
-    "link-uuid": "2409621b-0d66-463a-a98d-03c3bb41dac9",
+    "link-uuid": "494091f5-2037-4287-a487-0f3a2bbc887c",
     "title": "variable",
     "content": "Type Variable Multiplicity 0..1",
-    "timestamp": 1747672260870
+    "timestamp": 1751062551844
   },
   "references/eClassifiers/Reference/inheritance.html": {
     "path": "Reference/Inheritance",
-    "link-uuid": "4194bd7f-c231-4c48-9972-31df67ea4b78",
+    "link-uuid": "f64410bf-f92f-4c26-8e07-a29943d4d81c",
     "title": "Inheritance",
     "content": "Supertypes ",
-    "timestamp": 1747672260864
+    "timestamp": 1751062551840
   },
   "references/eClassifiers/Variable/load-specification.html": {
     "path": "Variable/Load specification",
-    "link-uuid": "62ace657-b3ee-421b-bbb3-d5f9399cccb0",
+    "link-uuid": "ff23b9b9-4e47-4d4b-82ff-a514f12aa6a9",
     "title": "Load specification",
     "content": "Some documentation: key: value",
-    "timestamp": 1747672260888
+    "timestamp": 1751062551857
   },
   "references/eClassifiers/Variable/references/eStructuralFeatures/name/index.html": {
     "path": "Variable/Attributes/name",
-    "link-uuid": "cc3d0118-dab7-4449-84d0-a2df1ad34e99",
+    "link-uuid": "1a0cc95a-6433-4423-9116-716b76439456",
     "title": "name",
     "content": "Type EString Multiplicity 0..1",
-    "timestamp": 1747672260890
+    "timestamp": 1751062551859
   }
 }
