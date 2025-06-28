@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="EN">
   <head>
-    <title>Default Graph</title>
+    <title>Force Graph 3D</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -87,11 +87,14 @@ window.nsdJsTreeSearchCallback = function(str, node) {
  
 </head>
   <body>
-    <div tabindex="-1" id="nsd_bf" class="modal">
+    <div tabindex="-1" id="nsd_dj" class="modal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">Hover mouse over nodes elements to display tooltips.
 Double-click on nodes to navigate go documentation.
+Left click - rotate.
+Mouse wheel - zoom.
+Right click - pan.
 Drag to rearrange.
 </div>
         </div>
@@ -117,9 +120,9 @@ Drag to rearrange.
           <ul class="navbar navbar-light navbar-expand-lg">
             <a href="index.html" title="A model of operands and operators" data-nsd-label-uuid="e0dce693-8c5d-402e-95d2-529e96194695" class="navbar-brand">
               <img src="https://img.icons8.com/nolan/64/apple-calculator.png" class="nsd-app-label-icon"/>Compute Model</a>
-            <button type="button" data-toggle="collapse" data-target="#nsd_b7" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            <button type="button" data-toggle="collapse" data-target="#nsd_db" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
             </button>
-            <div id="nsd_b7" class="collapse navbar-collapse">
+            <div id="nsd_db" class="collapse navbar-collapse">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                   <a href="classifiers.html" data-nsd-label-uuid="5d81d060-6241-4555-8db5-4bcca3070d63" class="nav-link">Classifiers</a>
@@ -136,10 +139,10 @@ Drag to rearrange.
                       <a href="circular-layout-graph.html" data-nsd-label-uuid="f46ed9e6-5353-4980-86fd-ea45470f73ab" class="dropdown-item">Circular Graph</a>
                       <a href="force-layout-graph.html" data-nsd-label-uuid="ad14cd7d-b11a-4387-9955-237daf0138dc" class="dropdown-item">Force Graph</a>
                       <a href="force-layout-graph-3d.html" data-nsd-label-uuid="af77bfbf-f5bb-4925-81e1-830761b6c506" class="dropdown-item">Force Graph 3D</a>
-                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div><span data-nsd-label-uuid="bf9929e9-2dbc-49ca-9fbe-b42621449d5b" class="active dropdown-item">Default Graph</span>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
+                      <a href="default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="bf9929e9-2dbc-49ca-9fbe-b42621449d5b" class="dropdown-item">Default Graph</a>
                       <a href="circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="f610c150-36dc-4fd7-aaa8-ff8803c25385" class="dropdown-item">Circular Graph</a>
-                      <a href="force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="25d4b75e-e430-4fd5-80d1-1ef3e3025248" class="dropdown-item">Force Graph</a>
-                      <a href="force-layout-graph-3d-with-dependencies-and-subpackages.html" data-nsd-label-uuid="18266544-ef4d-4634-ada1-d15eadf79b17" class="dropdown-item">Force Graph 3D</a>
+                      <a href="force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="25d4b75e-e430-4fd5-80d1-1ef3e3025248" class="dropdown-item">Force Graph</a><span data-nsd-label-uuid="18266544-ef4d-4634-ada1-d15eadf79b17" class="active dropdown-item">Force Graph 3D</span>
                     </div>
                   </li>
                 </li>
@@ -165,7 +168,7 @@ Drag to rearrange.
               <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Variable</a>
           </div>
         </div>
-        <div data-nsd-label-uuid="bf9929e9-2dbc-49ca-9fbe-b42621449d5b" data-nsd-action-uris="uuid:bf9929e9-2dbc-49ca-9fbe-b42621449d5b" class="col nsd-app-content-panel">
+        <div data-nsd-label-uuid="18266544-ef4d-4634-ada1-d15eadf79b17" data-nsd-action-uris="uuid:18266544-ef4d-4634-ada1-d15eadf79b17" class="col nsd-app-content-panel">
           <div class="container-fluid">
             <div class="row nsd-app-content-panel-breadcrumb-row">
               <div class="col">
@@ -173,7 +176,7 @@ Drag to rearrange.
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><span data-nsd-label-uuid="df55d831-95be-47b2-9c14-116872e2c1d2"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon"/>Graphs</span>
                     </li>
-                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="bf9929e9-2dbc-49ca-9fbe-b42621449d5b">Default Graph</span>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="18266544-ef4d-4634-ada1-d15eadf79b17">Force Graph 3D</span>
                     </li>
                   </ol>
                 </nav>
@@ -181,7 +184,7 @@ Drag to rearrange.
             </div>
             <div class="row nsd-app-content-panel-title-and-items-row">
               <div class="col-auto">
-                <H1><span data-nsd-label-uuid="bf9929e9-2dbc-49ca-9fbe-b42621449d5b" class="nsd-app-content-panel-title">Default Graph<a data-toggle="modal" data-target="#nsd_bf" href="#" title="A fixed force-layout graph of package classifiers showing relationships between them" style="vertical-align:super;font-size:x-small;margin-left:0.2em"><span class="far fa-question-circle nsd-app-label-icon"></span></a></span>
+                <H1><span data-nsd-label-uuid="18266544-ef4d-4634-ada1-d15eadf79b17" class="nsd-app-content-panel-title">Force Graph 3D<a data-toggle="modal" data-target="#nsd_dj" href="#" title="A live force-layout graph of package classifiers showing relationships between them" style="vertical-align:super;font-size:x-small;margin-left:0.2em"><span class="far fa-question-circle nsd-app-label-icon"></span></a></span>
                 </H1>
               </div>
             </div>
@@ -189,34 +192,239 @@ Drag to rearrange.
               <div class="col">
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col"><div id="graph-container-26" class="row" style="height:70vh;width:100%">
+                    <div class="col"><div id="force-graph29" class="row" style="height:70vh;width:100%">
 </div>
-<script type="text/javascript">
-	$(document).ready(function() {
-		var dom = document.getElementById("graph-container-26");
-		var myChart = echarts.init(dom, null, {
-			render: "canvas",
-			useDirtyRect: false
-		});
-		var option = {"legend":{},"series":[{"type":"graph","emphasis":{"focus":"adjacency"},"data":[{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Operand@ecore://nasdanika.org/demos/graph/compute","name":"Operand","value":{"description":"In this model a person is an abstract supertype of Man and Woman","externalLink":"references/eClassifiers/Operand/index.html"},"x":573.7101252839215,"y":459.1427953167477,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","symbolSize":50.0,"id":"Literal@ecore://nasdanika.org/demos/graph/compute","name":"Literal","value":{"description":"In this model a person is an abstract supertype of Man and Woman","externalLink":"references/eClassifiers/Literal/index.html"},"x":676.1599915783596,"y":652.4479203728006,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EString@http://www.eclipse.org/emf/2002/Ecore","name":"EString","value":{"externalLink":"index.html"},"x":510.6347223058292,"y":621.2767994226942,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Operator@ecore://nasdanika.org/demos/graph/compute","name":"Operator","value":{"description":"In this model a person is an abstract supertype of Man and Woman","externalLink":"references/eClassifiers/Operator/index.html"},"x":734.7393750764887,"y":196.0729873034237,"category":0},{"id":"Assignment@ecore://nasdanika.org/demos/graph/compute","name":"Assignment","value":{"description":"Assigns the value of its right-hand operand to its left-hand operand","externalLink":"references/eClassifiers/Assignment/index.html"},"x":938.6374467987624,"y":79.93890526555468,"category":0},{"id":"Multiplication@ecore://nasdanika.org/demos/graph/compute","name":"Multiplication","value":{"description":"In this model a person is an abstract supertype of Man and Woman","externalLink":"references/eClassifiers/Multiplication/index.html"},"x":666.8978290157003,"y":0.0,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Reference@ecore://nasdanika.org/demos/graph/compute","name":"Reference","value":{"description":"In this model a person is an abstract supertype of Man and Woman","externalLink":"references/eClassifiers/Reference/index.html"},"x":375.932414053592,"y":601.4119040269878,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Variable@ecore://nasdanika.org/demos/graph/compute","name":"Variable","value":{"description":"In this model a person is an abstract supertype of Man and Woman","externalLink":"references/eClassifiers/Variable/index.html"},"x":388.39724491321897,"y":479.0713487439007,"category":0}],"symbolSize":20,"roam":true,"layout":"none","links":[{"source":0,"target":1},{"source":0,"target":2},{"source":0,"target":3},{"source":0,"target":6},{"source":0,"target":7},{"source":1,"target":0},{"source":1,"target":2},{"source":3,"target":0},{"source":3,"target":4},{"source":3,"target":5},{"source":4,"target":3},{"source":5,"target":3},{"source":6,"target":0},{"source":6,"target":2},{"source":6,"target":7},{"source":7,"target":6},{"source":7,"target":0},{"source":7,"target":2}],"categories":[{"name":"compute"},{"name":"ecore"}],"draggable":true,"label":{"show":true,"position":"right"},"lineStyle":{"color":"source","curveness":0}}]};
-		option.tooltip = {};
-		option.series[0].tooltip = {
-			formatter: function(arg) {
-				return arg.value ? arg.value.description : null;
-			}
-		};
-		myChart.setOption(option);
-		myChart.on("dblclick", function(params) {
-			if (params.value) {
-				if (params.value.link) {
-					window.open(params.value.link, "_self");
-				} else if (params.value.externalLink) {
-					window.open(params.value.externalLink);
+<script type="module">
+	import { CSS2DRenderer, CSS2DObject } from 'https://esm.sh/three/examples/jsm/renderers/CSS2DRenderer.js';
+
+	        new ForceGraph3D(
+                document.getElementById('force-graph29'), 
+                {
+                        extraRenderers: [
+                                new CSS2DRenderer()
+                        ]
+                })
+                .graphData({
+          "nodes": [
+            {
+              "name": "Operand",
+              "id": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "In this model a person is an abstract supertype of Man and Woman",
+                "externalLink": "references/eClassifiers/Operand/index.html"
+              }],
+              "group": "compute"
+            },
+            {
+              "size": 50,
+              "name": "Literal",
+              "id": "Literal@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "In this model a person is an abstract supertype of Man and Woman",
+                "externalLink": "references/eClassifiers/Literal/index.html"
+              }],
+              "group": "compute"
+            },
+            {
+              "name": "EString",
+              "id": "EString@http://www.eclipse.org/emf/2002/Ecore",
+              "value": [{"externalLink": "index.html"}],
+              "group": "ecore"
+            },
+            {
+              "name": "Operator",
+              "id": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "In this model a person is an abstract supertype of Man and Woman",
+                "externalLink": "references/eClassifiers/Operator/index.html"
+              }],
+              "group": "compute"
+            },
+            {
+              "name": "Assignment",
+              "id": "Assignment@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "Assigns the value of its right-hand operand to its left-hand operand",
+                "externalLink": "references/eClassifiers/Assignment/index.html"
+              }],
+              "group": "compute"
+            },
+            {
+              "name": "Multiplication",
+              "id": "Multiplication@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "In this model a person is an abstract supertype of Man and Woman",
+                "externalLink": "references/eClassifiers/Multiplication/index.html"
+              }],
+              "group": "compute"
+            },
+            {
+              "name": "Reference",
+              "id": "Reference@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "In this model a person is an abstract supertype of Man and Woman",
+                "externalLink": "references/eClassifiers/Reference/index.html"
+              }],
+              "group": "compute"
+            },
+            {
+              "name": "Variable",
+              "id": "Variable@ecore://nasdanika.org/demos/graph/compute",
+              "value": [{
+                "description": "In this model a person is an abstract supertype of Man and Woman",
+                "externalLink": "references/eClassifiers/Variable/index.html"
+              }],
+              "group": "compute"
+            }
+          ],
+          "links": [
+            {
+              "rotation": 0,
+              "source": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Literal@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "target": "EString@http://www.eclipse.org/emf/2002/Ecore",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Reference@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Variable@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Literal@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Literal@ecore://nasdanika.org/demos/graph/compute",
+              "target": "EString@http://www.eclipse.org/emf/2002/Ecore",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Assignment@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Multiplication@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Assignment@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Multiplication@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operator@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Reference@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Reference@ecore://nasdanika.org/demos/graph/compute",
+              "target": "EString@http://www.eclipse.org/emf/2002/Ecore",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Reference@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Variable@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Variable@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Reference@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Variable@ecore://nasdanika.org/demos/graph/compute",
+              "target": "Operand@ecore://nasdanika.org/demos/graph/compute",
+              "curvature": 0
+            },
+            {
+              "rotation": 0,
+              "source": "Variable@ecore://nasdanika.org/demos/graph/compute",
+              "target": "EString@http://www.eclipse.org/emf/2002/Ecore",
+              "curvature": 0
+            }
+          ]
+        })
+                .nodeAutoColorBy('group')
+                .nodeVal('size')
+                .linkDirectionalArrowLength(2.5)
+                .linkDirectionalArrowRelPos(1)
+                .linkCurvature('curvature')
+                .linkCurveRotation('rotation')
+                .onNodeClick((node, event) => {
+       if (node.lastClick) {
+        if (event.timeStamp - node.lastClick < 500) {
+			if (Array.isArray(node.value) && node.value.length > 0) {
+				if (node.value[0].link) {
+					window.open(node.value[0].link, "_self");
+				} else if (node.value[0].externalLink) {
+					window.open(node.value[0].externalLink);
 				}
 			}
-		});
-		window.addEventListener("resize", myChart.resize);
-	});
+			delete node.lastClick;
+		} else {
+			node.lastClick = event.timeStamp;
+		}
+	} else {
+		node.lastClick = event.timeStamp;
+	}
+   })
+                .nodeThreeObject(node => {
+        const nodeEl = document.createElement('div');
+        nodeEl.textContent = node.name;
+        nodeEl.style.color = node.color;
+        nodeEl.className = 'node-label';
+        return new CSS2DObject(nodeEl);
+      })
+                .nodeThreeObjectExtend(true)
+                .onNodeDragEnd(node => {
+          node.fx = node.x;
+          node.fy = node.y;
+          node.fz = node.z;
+        })
 </script>
 </div>
                   </div>
