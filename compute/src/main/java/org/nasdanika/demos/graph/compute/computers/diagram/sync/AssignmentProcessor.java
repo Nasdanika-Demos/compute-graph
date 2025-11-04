@@ -1,12 +1,14 @@
 package org.nasdanika.demos.graph.compute.computers.diagram.sync;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.drawio.Node;
 import org.nasdanika.drawio.comparators.CartesianNodeComparator;
 import org.nasdanika.drawio.comparators.LabelModelElementComparator;
 import org.nasdanika.graph.emf.EReferenceConnection;
@@ -48,7 +50,7 @@ public class AssignmentProcessor implements BiFunction<Object, ProgressMonitor, 
 	}
 	
 	private List<BiFunction<Object, ProgressMonitor, Object>> getSortedEndpoints() {
-		CartesianNodeComparator comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown, new LabelModelElementComparator());
+		Comparator<Node> comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown).thenComparing(new LabelModelElementComparator());
 		return outgoingEndpoints.entrySet().stream().sorted((a,b) -> comparator.compare(a.getKey().getTarget(), b.getKey().getTarget())).map(Map.Entry::getValue).toList();
 	}	
 

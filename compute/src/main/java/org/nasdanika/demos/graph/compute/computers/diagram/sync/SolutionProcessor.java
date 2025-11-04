@@ -1,12 +1,14 @@
 package org.nasdanika.demos.graph.compute.computers.diagram.sync;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.drawio.Node;
 import org.nasdanika.drawio.comparators.CartesianNodeComparator;
 import org.nasdanika.drawio.comparators.LabelModelElementComparator;
 import org.nasdanika.graph.processor.OutgoingEndpoint;
@@ -21,7 +23,7 @@ public class SolutionProcessor implements BiFunction<Object, ProgressMonitor, Ob
 	@Override
 	public Object apply(Object arg, ProgressMonitor progressMonitor) {
 		Map<BiFunction<Object, ProgressMonitor, Object>, Object> outgoingEndpointsResults = new LinkedHashMap<>();
-		CartesianNodeComparator comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown, new LabelModelElementComparator());
+		Comparator<Node> comparator = new CartesianNodeComparator(CartesianNodeComparator.Direction.rightDown).thenComparing(new LabelModelElementComparator());
 		for (BiFunction<Object, ProgressMonitor, Object> e: outgoingEndpoints.entrySet().stream().sorted((a,b) -> comparator.compare(a.getKey().getTarget(), b.getKey().getTarget())).map(Map.Entry::getValue).toList()) {
 			outgoingEndpointsResults.put(e, e.apply(arg, progressMonitor));
 		}

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.nasdanika.demos.compute-graph</groupId>
 	<artifactId>parent</artifactId>
-	<version>2025.6.0</version>
+	<version>2025.10.0</version>
 	<packaging>pom</packaging>
 	<name>Compute graph demo</name>
 	<description>Compute model and node processors to calculate circumference using a parse graph</description>
@@ -23,9 +23,9 @@
 	<url>https://github.com/Nasdanika-Models/architecture</url>
 
 	<properties>
-		<core.version>2025.6.0</core.version>
-		<html.version>2025.6.0</html.version>
-		<models.ecore.version>2025.6.0</models.ecore.version>
+		<core.version>2025.10.0</core.version>
+		<html.version>2025.10.0</html.version>
+		<models.ecore.version>2025.10.0</models.ecore.version>
 		<jacoco.version>0.8.12</jacoco.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
@@ -36,14 +36,7 @@
 		        <plugin>
 		            <groupId>org.apache.maven.plugins</groupId>
 		            <artifactId>maven-surefire-plugin</artifactId>
-		            <version>3.5.3</version>
-		            <dependencies>
-		                <dependency>
-		                    <groupId>org.junit.jupiter</groupId>
-		                    <artifactId>junit-jupiter-engine</artifactId>
-		                    <version>5.12.1</version>
-		                </dependency>
-		            </dependencies>
+		            <version>3.5.4</version>
 		        </plugin>
 		        <plugin>
 		            <groupId>org.apache.maven.plugins</groupId>
@@ -75,7 +68,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.11.2</version>
+				<version>3.12.0</version>
 			
 				<executions>
 					<execution>
@@ -121,13 +114,13 @@
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-api</artifactId>
-		    <version>5.12.1</version>
+		    <version>6.0.0</version>
 		    <scope>test</scope>
 		</dependency>		
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
-		    <version>5.12.1</version>
+		    <version>6.0.0</version>
 		    <scope>test</scope>
 		</dependency>		
 	</dependencies>
