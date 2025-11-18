@@ -3,6 +3,7 @@ package org.nasdanika.demos.graph.compute.processors.doc;
 import java.util.function.BiConsumer;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.Assignment;
@@ -18,8 +19,8 @@ import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.graph.processor.ProcessorInfo;
 import org.nasdanika.graph.processor.emf.EObjectNodeProcessor;
 import org.nasdanika.models.app.Action;
-import org.nasdanika.models.app.Label;
 import org.nasdanika.models.app.AppFactory;
+import org.nasdanika.models.app.Label;
 import org.nasdanika.models.app.graph.WidgetFactory;
 import org.nasdanika.ncore.util.NcoreUtil;
 
@@ -33,8 +34,8 @@ public class ComputeNodeProcessorFactory {
 	private Context context;
 	private java.util.function.BiFunction<URI, ProgressMonitor, Label> prototypeProvider;
 
-	protected java.util.function.Function<ProgressMonitor, Action> getPrototypeProvider(NodeProcessorConfig<WidgetFactory, WidgetFactory> config) {
-		return progressMonitor -> {
+	protected java.util.function.BiFunction<EObject, ProgressMonitor, Action> getPrototypeProvider(NodeProcessorConfig<WidgetFactory, WidgetFactory> config) {
+		return (eObj, progressMonitor) -> {
 			if (prototypeProvider != null) {
 				for (URI identifier: NcoreUtil.getIdentifiers(((EObjectNode) config.getElement()).get())) {
 					Label prototype = prototypeProvider.apply(identifier, progressMonitor);

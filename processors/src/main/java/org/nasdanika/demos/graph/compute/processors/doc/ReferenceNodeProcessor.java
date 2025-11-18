@@ -2,8 +2,7 @@
  */
 package org.nasdanika.demos.graph.compute.processors.doc;
 
-import java.util.function.Function;
-
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.demos.graph.compute.Reference;
@@ -19,7 +18,7 @@ public class ReferenceNodeProcessor extends OperandNodeProcessor<Reference> {
 	public ReferenceNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
 			Context context,
-			Function<ProgressMonitor, Action> prototypeProvider) {
+			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);
 	}
 

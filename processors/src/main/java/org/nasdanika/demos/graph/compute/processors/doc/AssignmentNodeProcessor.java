@@ -2,23 +2,22 @@
  */
 package org.nasdanika.demos.graph.compute.processors.doc;
 
-import java.util.function.Function;
-
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.common.Context;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.demos.graph.compute.Assignment;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.models.app.Action;
 import org.nasdanika.models.app.Label;
 import org.nasdanika.models.app.graph.WidgetFactory;
-import org.nasdanika.demos.graph.compute.Assignment;
 
 public class AssignmentNodeProcessor extends OperatorNodeProcessor<Assignment> {
 
 	public AssignmentNodeProcessor(
 			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
 			Context context,
-			Function<ProgressMonitor, Action> prototypeProvider) {
+			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);
 	}
 	
