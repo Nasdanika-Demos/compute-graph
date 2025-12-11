@@ -10,7 +10,8 @@ import org.nasdanika.drawio.Node;
 import org.nasdanika.graph.Element;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.graph.processor.Processor;
-import org.nasdanika.graph.processor.ProcessorInfo;
+import org.nasdanika.graph.processor.ProcessorConfig;
+import org.nasdanika.models.app.graph.WidgetFactory;
 
 /**
  * Reflective target to create synchronous {@link BiFunction} processors.
@@ -19,9 +20,9 @@ public class SyncProcessorFactory {
 	
 	@Processor("label == 'Solution'")
 	public Object createSolutionProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new SolutionProcessor();
@@ -29,9 +30,9 @@ public class SyncProcessorFactory {
 		
 	@Processor("label == '='")
 	public Object createAssignmentProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new AssignmentProcessor();
@@ -39,9 +40,9 @@ public class SyncProcessorFactory {
 	
 	@Processor("label == '*'")
 	public Object createMultiplicationProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new MultiplicationProcessor();
@@ -49,9 +50,9 @@ public class SyncProcessorFactory {
 	
 	@Processor("#target.isLiteral(#this)")
 	public Object createLiteralProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new LiteralProcessor(); 
@@ -69,9 +70,9 @@ public class SyncProcessorFactory {
 		
 	@Processor("#target.isVariable(style)")
 	public Object createVariableProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new VariableProcessor();
@@ -88,9 +89,9 @@ public class SyncProcessorFactory {
 	
 	@Processor("'#bac8d3' == style.get('fillColor')")
 	public Object createReferenceProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new ReferenceProcessor();

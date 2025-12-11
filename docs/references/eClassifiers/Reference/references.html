@@ -26,7 +26,15 @@
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script><!-- Node text styling -->      
+    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script><script type="importmap">
+{
+    "imports" : {
+        "three": "https://cdn.jsdelivr.net/npm/three@v0.177.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.177.0/examples/jsm/"
+    }
+}
+</script>    
+<!-- Node text styling -->      
 <style>
   .node-label {
         font-size: 12px;
@@ -46,58 +54,19 @@
 
   gtag('config', 'G-9BRJVLK8CC');
 </script>    
-
-<!--  Start search configuration -->
-<script src="../../../search-documents.js"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
-
-<script>
-// Script for full-text search of JsTree
-
-window.nsdJsTreeSearchCallback = function(str, node) { 
-    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
-    if (sf.search(node.text).isMatch) {
-		return true;
-	} 
-    let searchResult = this.search(str); 
-    for (const sr in searchResult) {
-        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
-            return true;
-        } 
-    } 
-    return false; 
-}.bind(lunr(function () {
-			  this.ref('id');
-			  this.field('title');
-			  this.field('content');
-
-			  for (const key in searchDocuments) {
-				  let doc = searchDocuments[key];
-				this.add({
-					id: doc['link-uuid'],
-					title: doc.title,
-					path: doc.path,
-					content: doc.content
-				});  
-			  }
-			}));
-</script>
-<!-- End search configuration  -->
- 
 </head>
   <body>
     <div class="container-fluid nsd-app-container">
       <div class="row">
         <div class="col nsd-app-header">
-          <a href="https://github.com/Nasdanika-Demos" data-nsd-label-uuid="02a08d9b-b380-4c48-a9e9-d9c6d0467ef1" class="nsd-app-header-title">
+          <a href="https://github.com/Nasdanika-Demos" data-nsd-label-uuid="455ef9d5-c596-444e-9953-367b99fbc0ba" class="nsd-app-header-title">
             <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon"/>Nasdanika Demos</a>
           <ul class="nav nsd-app-header-navs">
             <li class="nav-item">
-              <a href="../../../search.html" data-nsd-label-uuid="b428578e-a371-4f88-9bd5-3c7701ef07e4" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
+              <a href="../../../search.html" data-nsd-label-uuid="24569b0c-2c83-44b8-b648-a12c6397400c" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
             </li>
             <li class="nav-item">
-              <a href="../../../glossary.html" data-nsd-label-uuid="49f05832-8c21-4770-8f32-3b2a6be3025f" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
+              <a href="../../../glossary.html" data-nsd-label-uuid="5f8dcaf6-d361-415c-b734-fdac2a2cf4ef" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
             </li>
           </ul>
         </div>
@@ -105,32 +74,34 @@ window.nsdJsTreeSearchCallback = function(str, node) {
       <div class="row">
         <div class="col nsd-app-navbar">
           <ul class="navbar navbar-light navbar-expand-lg">
-            <a href="../../../index.html" title="A model of operands and operators" data-nsd-label-uuid="e0dce693-8c5d-402e-95d2-529e96194695" class="navbar-brand">
+            <a href="../../../index.html" title="A model of operands and operators" data-nsd-label-uuid="1ed402b7-736c-46e9-90b1-ce2b55fc75f8" class="navbar-brand">
               <img src="https://img.icons8.com/nolan/64/apple-calculator.png" class="nsd-app-label-icon"/>Compute Model</a>
-            <button type="button" data-toggle="collapse" data-target="#nsd_5m" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            <button type="button" data-toggle="collapse" data-target="#nsd_9z" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
             </button>
-            <div id="nsd_5m" class="collapse navbar-collapse">
+            <div id="nsd_9z" class="collapse navbar-collapse">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a href="../../../classifiers.html" data-nsd-label-uuid="5d81d060-6241-4555-8db5-4bcca3070d63" class="nav-link">Classifiers</a>
+                  <a href="../../../classifiers.html" data-nsd-label-uuid="60a0f5cc-d4fa-4971-a865-85f0d19d6b67" class="nav-link">Classifiers</a>
                 </li>
                 <li class="nav-item">
-                  <a href="../../../diagram.html" data-nsd-label-uuid="3d1c151f-91b4-45b8-8650-cee59258fff2" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                  <a href="../../../diagram.html" data-nsd-label-uuid="7a5e23c7-4b12-4a5c-8622-960bbc9f1c1d" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
                 </li>
                 <li class="nav-item">
-                  <li data-nsd-label-uuid="df55d831-95be-47b2-9c14-116872e2c1d2" class="dropdown">
+                  <li data-nsd-label-uuid="20e90030-1788-4c1f-a06b-60dcfc40e503" class="dropdown">
                     <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
                       <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon"/>Graphs</a>
                     <div class="dropdown-menu">
-                      <a href="../../../default-graph.html" data-nsd-label-uuid="2e0579f9-3484-47f1-8f1e-e7f2929eeded" class="dropdown-item">Default Graph</a>
-                      <a href="../../../circular-layout-graph.html" data-nsd-label-uuid="f46ed9e6-5353-4980-86fd-ea45470f73ab" class="dropdown-item">Circular Graph</a>
-                      <a href="../../../force-layout-graph.html" data-nsd-label-uuid="ad14cd7d-b11a-4387-9955-237daf0138dc" class="dropdown-item">Force Graph</a>
-                      <a href="../../../force-layout-graph-3d.html" data-nsd-label-uuid="af77bfbf-f5bb-4925-81e1-830761b6c506" class="dropdown-item">Force Graph 3D</a>
+                      <a href="../../../default-graph.html" data-nsd-label-uuid="b2125b3b-ff32-427c-b5da-c8891a172f50" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph.html" data-nsd-label-uuid="3d6f5e1b-552b-4c46-9694-67b97f181c64" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph.html" data-nsd-label-uuid="c90366c1-06e4-4cfd-a60c-71fbf5fee777" class="dropdown-item">Force Graph</a>
+                      <a href="../../../force-layout-graph-3d.html" data-nsd-label-uuid="c7bc4350-ccda-40d5-9809-8331d2efbc8e" class="dropdown-item">Force Graph 3D</a>
+                      <a href="../../../force-layout-graph-3d-detailed.html" data-nsd-label-uuid="349ae5a0-99c8-4fd9-9cce-39502482a6f9" class="dropdown-item">Force Graph 3D Detailed</a>
                       <div title="With dependencies and sub-packages" class="dropdown-divider"></div>
-                      <a href="../../../default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="bf9929e9-2dbc-49ca-9fbe-b42621449d5b" class="dropdown-item">Default Graph</a>
-                      <a href="../../../circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="f610c150-36dc-4fd7-aaa8-ff8803c25385" class="dropdown-item">Circular Graph</a>
-                      <a href="../../../force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="25d4b75e-e430-4fd5-80d1-1ef3e3025248" class="dropdown-item">Force Graph</a>
-                      <a href="../../../force-layout-graph-3d-with-dependencies-and-subpackages.html" data-nsd-label-uuid="18266544-ef4d-4634-ada1-d15eadf79b17" class="dropdown-item">Force Graph 3D</a>
+                      <a href="../../../default-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="4ab94746-6884-4e3e-ad59-42658f014b7f" class="dropdown-item">Default Graph</a>
+                      <a href="../../../circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="ef1ffa43-a801-4043-a11a-f6fb60dfe8e3" class="dropdown-item">Circular Graph</a>
+                      <a href="../../../force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="ce4e480a-70a0-4b44-9e2f-fcc6b47fb64a" class="dropdown-item">Force Graph</a>
+                      <a href="../../../force-layout-graph-3d-with-dependencies-and-subpackages.html" data-nsd-label-uuid="7815179d-618d-4776-9907-27aa7250d532" class="dropdown-item">Force Graph 3D</a>
+                      <a href="../../../force-layout-graph-3d-with-dependencies-and-subpackages-detailed.html" data-nsd-label-uuid="4250f719-19cd-4916-9e48-ea8aa43081ef" class="dropdown-item">Force Graph 3D Detailed</a>
                     </div>
                   </li>
                 </li>
@@ -141,32 +112,34 @@ window.nsdJsTreeSearchCallback = function(str, node) {
       </div>
       <div class="row nsd-app-content-row">
         <div class="col nsd-app-navigation-panel">
-          <div class="list-group list-group-flush">
-            <a href="../Assignment/index.html" title="Assigns the value of its right-hand operand to its left-hand operand" data-nsd-label-uuid="f2bc4fb3-b3d0-47ec-bdd9-aed6f1824db9" class="list-group-item list-group-action"><span class="fas fa-equals nsd-app-label-icon"></span>Assignment</a>
-            <a href="../Literal/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="d4e9c6e0-d8ed-4dd0-a8ba-13003fcfa68b" class="list-group-item list-group-action">
-              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Literal</a>
-            <a href="../Multiplication/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="e2d86700-7b5e-4feb-9df2-ca7f230e3aaf" class="list-group-item list-group-action"><span class="fas fa-asterisk nsd-app-label-icon"></span>Multiplication</a>
-            <a href="../Operand/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="c2030d80-af11-4cb6-b8da-681127194a91" class="list-group-item list-group-action">
-              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Operand</a>
-            <a href="../Operator/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="35cdc54b-cd18-4efe-84b0-d1ceec10fc9e" class="list-group-item list-group-action">
-              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Operator</a>
-            <a href="index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="94b46df8-2bfb-485c-95ea-317fb120a4ae" class="list-group-item list-group-action active">
-              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Reference</a>
-            <a href="../Variable/index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="28008b79-1fb1-4c5b-a495-7d57dc03672f" class="list-group-item list-group-action">
-              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Variable</a>
-          </div>
+          <input type="text" id="ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel_searchInput" title="Full-text search. You can use wildcards, e.g. 'foo*' or 'f*o'; title or content fields, e.g. 'title:foo* bar'; boosts, e.g. 'foo^10 bar'; fuzzy matches, e.g. 'foo~1'; and term presence, e.g. '+foo bar -baz'" class="form-control mt-1"/>
+          <div id="ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel"></div>
+          <script>$(document).ready( function() {
+$('#ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel').jstree(function(tree) { tree.state.filter = function(state) { delete state.core.selected; return state; };  tree.search.search_callback = function(searchStr, node) { if (typeof window.nsdJsTreeSearchCallback === 'function') return window.nsdJsTreeSearchCallback(searchStr, node); var sf = new $.vakata.search(searchStr, true, { caseSensitive : false, fuzzy : false }); return sf.search(node.text).isMatch; }; return tree; }({"core":{"data":[{"a_attr":{"title":"Assigns the value of its right-hand operand to its left-hand operand","onclick":"window.location='../Assignment/index.html';"},"data-nsd-label-uuid":"a954d29a-517a-4311-aad1-ed1cdd6b7b7b","icon":"fas fa-equals","id":"nsd-app-nav-item-3413e9fa-bc37-4abb-9a01-afc41e19f00c","text":"Assignment","type":"leaf"},{"a_attr":{"title":"In this model a person is an abstract supertype of Man and Woman","onclick":"window.location='../Literal/index.html';"},"data-nsd-label-uuid":"25313db1-95a7-48f3-913e-143edb4ea06d","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"nsd-app-nav-item-7771ca20-1711-4911-91cd-0b3c402cea16","text":"Literal","type":"leaf"},{"a_attr":{"title":"In this model a person is an abstract supertype of Man and Woman","onclick":"window.location='../Multiplication/index.html';"},"data-nsd-label-uuid":"52419802-8762-44ab-b737-07f1173a5e98","icon":"fas fa-asterisk","id":"nsd-app-nav-item-1cb82a07-d0c2-48b5-8af8-7fd77adad35c","text":"Multiplication","type":"leaf"},{"a_attr":{"title":"In this model a person is an abstract supertype of Man and Woman","onclick":"window.location='../Operand/index.html';"},"data-nsd-label-uuid":"3a731b57-4f5f-4d48-8ed2-5e853f8ad16d","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"nsd-app-nav-item-f7d2ccd6-d023-4af5-a093-0befa4e22f39","text":"Operand","type":"leaf"},{"a_attr":{"title":"In this model a person is an abstract supertype of Man and Woman","onclick":"window.location='../Operator/index.html';"},"data-nsd-label-uuid":"02d772c0-746f-42eb-90e4-2b1c16bce3bc","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"nsd-app-nav-item-7fe1d7c4-e81f-45b4-816c-70b088241279","text":"Operator","type":"leaf"},{"a_attr":{"title":"In this model a person is an abstract supertype of Man and Woman","onclick":"window.location='index.html';"},"data-nsd-label-uuid":"c35d801a-4acd-4a11-9ede-c77ab6a0f42b","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","state":{"selected":true},"id":"nsd-app-nav-item-fb1984d6-7878-45ee-8f09-7918683a9aba","text":"Reference","type":"leaf"},{"a_attr":{"title":"In this model a person is an abstract supertype of Man and Woman","onclick":"window.location='../Variable/index.html';"},"data-nsd-label-uuid":"3e763055-ce96-4e86-b074-05171af5c4fc","icon":"https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"nsd-app-nav-item-9fd6739e-7f27-40dd-9dc2-009c4409ee89","text":"Variable","type":"leaf"}]},"search":{"show_only_matches":true,"show_only_matches_children":true},"types":{"leaf":{"icon":"jstree-file"}},"plugins":["state","type","search"],"state":{"key":"ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel"}}));
+// Tokens: searchInputSelector, timer, treeSelector
+$('#ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel_searchInput').keyup(function () {
+    if (window['nsd_jstTreeSearchTimer_nsd_a7']) { 
+		clearTimeout(window['nsd_jstTreeSearchTimer_nsd_a7']); 
+	}
+    window['nsd_jstTreeSearchTimer_nsd_a7'] = setTimeout(function () {
+      var v = $('#ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel_searchInput').val();
+      $('#ccf6d7f7-7f18-49e2-8f9e-56fd9e51fc34-navigation-panel').jstree(true).search(v);
+    }, 250);
+  });
+
+});</script>
         </div>
-        <div data-nsd-label-uuid="097923bb-38cc-4d62-abd3-f90125592b2a" data-nsd-action-uris="uuid:097923bb-38cc-4d62-abd3-f90125592b2a" class="col nsd-app-content-panel">
+        <main data-nsd-label-uuid="f0c1ee7c-1782-42c9-8152-0873b0e34355" data-nsd-action-uris="uuid:f0c1ee7c-1782-42c9-8152-0873b0e34355" class="col nsd-app-content-panel">
           <div class="container-fluid">
             <div class="row nsd-app-content-panel-breadcrumb-row">
               <div class="col">
                 <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                      <a href="index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="94b46df8-2bfb-485c-95ea-317fb120a4ae">
+                      <a href="index.html" title="In this model a person is an abstract supertype of Man and Woman" data-nsd-label-uuid="c35d801a-4acd-4a11-9ede-c77ab6a0f42b">
                         <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"/>Reference</a>
                     </li>
-                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="097923bb-38cc-4d62-abd3-f90125592b2a"><img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif" class="nsd-app-label-icon"/>References</span>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="f0c1ee7c-1782-42c9-8152-0873b0e34355"><img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif" class="nsd-app-label-icon"/>References</span>
                     </li>
                   </ol>
                 </nav>
@@ -174,7 +147,7 @@ window.nsdJsTreeSearchCallback = function(str, node) {
             </div>
             <div class="row nsd-app-content-panel-title-and-items-row">
               <div class="col-auto">
-                <H1><span data-nsd-label-uuid="097923bb-38cc-4d62-abd3-f90125592b2a" class="nsd-app-content-panel-title"><img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif" class="nsd-app-label-icon"/>References</span>
+                <H1><span data-nsd-label-uuid="f0c1ee7c-1782-42c9-8152-0873b0e34355" class="nsd-app-content-panel-title"><img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EReference.gif" class="nsd-app-label-icon"/>References</span>
                 </H1>
               </div>
             </div>
@@ -194,13 +167,13 @@ window.nsdJsTreeSearchCallback = function(str, node) {
               </div>
             </div>
           </div>
-        </div>
+        </main>
       </div>
       <div class="row">
         <div class="col nsd-app-footer">
           <ul class="nav nsd-app-footer-navs">
             <li class="nav-item">
-              <a href="https://github.com/Nasdanika-Demos/compute-graph" data-nsd-label-uuid="9cb96952-eb0c-40ef-a01c-67015e492277" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
+              <a href="https://github.com/Nasdanika-Demos/compute-graph" data-nsd-label-uuid="b979b210-0e7a-4eff-a0b2-e548207eb006" class="nav-link"><span class="fab fa-github nsd-app-label-icon"></span>Sources</a>
             </li>
           </ul>
         </div>

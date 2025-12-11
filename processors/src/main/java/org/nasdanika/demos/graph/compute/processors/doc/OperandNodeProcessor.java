@@ -14,7 +14,7 @@ import org.nasdanika.models.app.graph.emf.EObjectNodeProcessor;
 public class OperandNodeProcessor<T extends Operand> extends EObjectNodeProcessor<T> {
 
 	public OperandNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			Context context,
 			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);

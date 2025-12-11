@@ -25,6 +25,14 @@ bootstrap.Page:
   head:
     # Google analytics
     content.Text: |+2    
+      <script type="importmap">
+      {
+          "imports" : {
+              "three": "https://cdn.jsdelivr.net/npm/three@v0.177.0/build/three.module.js",
+              "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.177.0/examples/jsm/"
+          }
+      }
+      </script>    
       <!-- Node text styling -->      
       <style>
         .node-label {
@@ -35,7 +43,7 @@ bootstrap.Page:
               user-select: none;
             }               
       </style>
-
+      
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
       <script>
@@ -45,11 +53,10 @@ bootstrap.Page:
       
         gtag('config', 'G-9BRJVLK8CC');
       </script>    
-      
-      <!-- ${search-config} -->
-       
   body:
     app.Page:
       fluid: true
+      navigation-panel:
+        style: SEARCHABLE_TREE 
         
  

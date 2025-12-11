@@ -39,19 +39,19 @@ public class ComputeGraphTests {
 		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
 		org.nasdanika.drawio.Document diagram = org.nasdanika.drawio.Document.load(diagramFile.toURI().toURL());
 		// Configs and processors. Pass-through (dumb) connections, override isPassthrough to return true for "smart" connections
-		NopEndpointProcessorConfigFactory<Function<Object,Object>> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
+		NopEndpointProcessorConfigFactory<Function<Object,Object>,Object> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
 		
-		Transformer<org.nasdanika.graph.Element, ProcessorConfig> transformer = new Transformer<>(processorConfigFactory);
+		Transformer<org.nasdanika.graph.Element, ProcessorConfig<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object>> transformer = new Transformer<>(processorConfigFactory);
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		Map<org.nasdanika.graph.Element, ProcessorConfig> configs = transformer.transform(Collections.singleton(diagram), false, progressMonitor);
+		Map<org.nasdanika.graph.Element, ProcessorConfig<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object>> configs = transformer.transform(Collections.singleton(diagram), false, progressMonitor);
 		
-		ReflectiveProcessorFactoryProvider<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>> processorFactoryProvider = new ReflectiveProcessorFactoryProvider<>(new org.nasdanika.demos.graph.compute.computers.diagram.sync.SyncProcessorFactory());
-		ProcessorFactory<BiFunction<Object, ProgressMonitor, Object>> processorFactory = processorFactoryProvider.getFactory(); 
+		ReflectiveProcessorFactoryProvider<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> processorFactoryProvider = new ReflectiveProcessorFactoryProvider<>(new org.nasdanika.demos.graph.compute.computers.diagram.sync.SyncProcessorFactory());
+		ProcessorFactory<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> processorFactory = processorFactoryProvider.getFactory(); 
 		
-		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
+		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
 		
 		// Solution processor
-		ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>> solutionProcessorInfo = processors
+		ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> solutionProcessorInfo = processors
 				.values()
 				.stream()
 				.filter(i -> i.getProcessor() != null  && i.getElement() instanceof org.nasdanika.drawio.Node && "Solution".equals(((org.nasdanika.drawio.Node) i.getElement()).getLabel()))
@@ -69,24 +69,24 @@ public class ComputeGraphTests {
 		File diagramFile = new File("parse-tree.drawio").getCanonicalFile();
 		org.nasdanika.drawio.Document diagram = org.nasdanika.drawio.Document.load(diagramFile.toURI().toURL());
 		// Configs and processors. Pass-through (dumb) connections, override isPassthrough to return true for "smart" connections
-		NopEndpointProcessorConfigFactory<Function<Object,Object>> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
+		NopEndpointProcessorConfigFactory<Function<Object,Object>, Object> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
 		
-		Transformer<org.nasdanika.graph.Element, ProcessorConfig> transformer = new Transformer<>(processorConfigFactory);
+		Transformer<org.nasdanika.graph.Element, ProcessorConfig<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object>> transformer = new Transformer<>(processorConfigFactory);
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		Map<org.nasdanika.graph.Element, ProcessorConfig> configs = transformer.transform(Collections.singleton(diagram), false, progressMonitor);
+		Map<org.nasdanika.graph.Element, ProcessorConfig<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object>> configs = transformer.transform(Collections.singleton(diagram), false, progressMonitor);
 		
 		CapabilityLoader capabilityLoader = new CapabilityLoader();		
-		CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>> processorFactory = new CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>>(
+		CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> processorFactory = new CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>>(
 				BiFunction.class, 
 				BiFunction.class, 
 				BiFunction.class, 
 				null, 
 				capabilityLoader); 
 		
-		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
+		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
 		
 		// Solution processor
-		ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>> solutionProcessorInfo = processors
+		ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> solutionProcessorInfo = processors
 				.values()
 				.stream()
 				.filter(i -> i.getProcessor() != null  && i.getElement() instanceof org.nasdanika.drawio.Node && "Solution".equals(((org.nasdanika.drawio.Node) i.getElement()).getLabel()))
@@ -116,33 +116,33 @@ public class ComputeGraphTests {
 		xmiResource.save(null);		
 		
 		Context context = Context.EMPTY_CONTEXT;		
-		NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>> processorInfo = (NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>>) createCapabilityProcessor(root, null, context, progressMonitor);
+		NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> processorInfo = (NodeProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>>) createCapabilityProcessor(root, null, context, progressMonitor);
 		BiFunction<Object, ProgressMonitor, Object> processor = processorInfo.getProcessor();
 		Object result = processor.apply("Hello", progressMonitor);
 		System.out.println(result);
 	}
 		
-	protected ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>> createCapabilityProcessor(EObject root, Object requirement, Context context, ProgressMonitor progressMonitor) {
+	protected ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> createCapabilityProcessor(EObject root, Object requirement, Context context, ProgressMonitor progressMonitor) {
 		// Creating graph		
 		EObjectGraphFactory eObjectGraphFactory = new EObjectGraphFactory();  
 		Transformer<EObject,EObjectNode> graphFactory = new Transformer<>(eObjectGraphFactory); // Reflective node creation using @ElementFactory annotation
 		Map<EObject, EObjectNode> registry = graphFactory.transform(Collections.singleton(root), false, progressMonitor);
 		
 		// Configs and processors. Pass-through (dumb) connections, override isPassthrough to return true for "smart" connections
-		NopEndpointProcessorConfigFactory<Function<Object,Object>> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
+		NopEndpointProcessorConfigFactory<Function<Object,Object>, Object> processorConfigFactory = new NopEndpointProcessorConfigFactory<>();
 		
-		Transformer<org.nasdanika.graph.Element, ProcessorConfig> transformer = new Transformer<>(processorConfigFactory);
-		Map<org.nasdanika.graph.Element, ProcessorConfig> configs = transformer.transform(registry.values(), false, progressMonitor);
+		Transformer<org.nasdanika.graph.Element, ProcessorConfig<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object>> transformer = new Transformer<>(processorConfigFactory);
+		Map<org.nasdanika.graph.Element, ProcessorConfig<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object>> configs = transformer.transform(registry.values(), false, progressMonitor);
 
 		CapabilityLoader capabilityLoader = new CapabilityLoader();		
-		CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>> processorFactory = new CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>>(
+		CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>> processorFactory = new CapabilityProcessorFactory<Object, BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>>(
 				BiFunction.class, 
 				BiFunction.class, 
 				BiFunction.class, 
 				null, 
 				capabilityLoader); 
 		
-		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
+		Map<org.nasdanika.graph.Element, ProcessorInfo<BiFunction<Object, ProgressMonitor, Object>, BiFunction<Object, ProgressMonitor, Object>, Object, BiFunction<Object, ProgressMonitor, Object>>> processors = processorFactory.createProcessors(configs.values(), false, progressMonitor);
 		
 		// Root element processor
 		return processors

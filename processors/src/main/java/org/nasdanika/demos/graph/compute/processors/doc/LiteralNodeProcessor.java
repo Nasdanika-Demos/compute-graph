@@ -15,7 +15,7 @@ public class LiteralNodeProcessor extends OperandNodeProcessor<Literal> {
 //	String getValue();
 	
 	public LiteralNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			Context context,
 			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);

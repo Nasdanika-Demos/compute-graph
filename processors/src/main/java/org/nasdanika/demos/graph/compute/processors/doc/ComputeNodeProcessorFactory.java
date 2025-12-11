@@ -16,7 +16,7 @@ import org.nasdanika.demos.graph.compute.Variable;
 import org.nasdanika.graph.Element;
 import org.nasdanika.graph.emf.EObjectNode;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
-import org.nasdanika.graph.processor.ProcessorInfo;
+import org.nasdanika.graph.processor.ProcessorConfig;
 import org.nasdanika.graph.processor.emf.EObjectNodeProcessor;
 import org.nasdanika.models.app.Action;
 import org.nasdanika.models.app.AppFactory;
@@ -34,7 +34,7 @@ public class ComputeNodeProcessorFactory {
 	private Context context;
 	private java.util.function.BiFunction<URI, ProgressMonitor, Label> prototypeProvider;
 
-	protected java.util.function.BiFunction<EObject, ProgressMonitor, Action> getPrototypeProvider(NodeProcessorConfig<WidgetFactory, WidgetFactory> config) {
+	protected java.util.function.BiFunction<EObject, ProgressMonitor, Action> getPrototypeProvider(NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config) {
 		return (eObj, progressMonitor) -> {
 			if (prototypeProvider != null) {
 				for (URI identifier: NcoreUtil.getIdentifiers(((EObjectNode) config.getElement()).get())) {
@@ -62,9 +62,9 @@ public class ComputeNodeProcessorFactory {
 	
 	@EObjectNodeProcessor(type = Assignment.class)
 	public Object createAssignmentNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			boolean parallel, 
-			BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+			BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 			ProgressMonitor progressMonitor) {
 		
 		return new AssignmentNodeProcessor(config, context, getPrototypeProvider(config));
@@ -72,9 +72,9 @@ public class ComputeNodeProcessorFactory {
 	
 	@EObjectNodeProcessor(type = Literal.class)
 	public Object createLiteranNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			boolean parallel, 
-			BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+			BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 			ProgressMonitor progressMonitor) {
 		
 		return new LiteralNodeProcessor(config, context, getPrototypeProvider(config));
@@ -82,9 +82,9 @@ public class ComputeNodeProcessorFactory {
 	
 	@EObjectNodeProcessor(type = Multiplication.class)
 	public Object createMultiplicationNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			boolean parallel, 
-			BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+			BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 			ProgressMonitor progressMonitor) {
 		
 		return new MultiplicationNodeProcessor(config, context, getPrototypeProvider(config));
@@ -92,9 +92,9 @@ public class ComputeNodeProcessorFactory {
 		
 	@EObjectNodeProcessor(type = Operand.class)
 	public Object createOperandNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			boolean parallel, 
-			BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+			BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 			ProgressMonitor progressMonitor) {
 		
 		return new OperandNodeProcessor<Operand>(config, context, getPrototypeProvider(config));
@@ -102,9 +102,9 @@ public class ComputeNodeProcessorFactory {
 	
 	@EObjectNodeProcessor(type = Operator.class)
 	public Object createOperatorNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			boolean parallel, 
-			BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+			BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 			ProgressMonitor progressMonitor) {
 		
 		return new OperatorNodeProcessor<Operator>(config, context, getPrototypeProvider(config));
@@ -112,9 +112,9 @@ public class ComputeNodeProcessorFactory {
 	
 	@EObjectNodeProcessor(type = Reference.class)
 	public Object createReferenceNodeProcessor(
-		NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		ProgressMonitor progressMonitor) {
 	
 	return new ReferenceNodeProcessor(config, context, getPrototypeProvider(config));
@@ -122,9 +122,9 @@ public class ComputeNodeProcessorFactory {
 	
 	@EObjectNodeProcessor(type = Variable.class)
 	public Object createVariableNodeProcessor(
-		NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		ProgressMonitor progressMonitor) {
 	
 	return new VariableNodeProcessor(config, context, getPrototypeProvider(config));

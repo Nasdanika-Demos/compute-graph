@@ -16,7 +16,7 @@ public class ReferenceNodeProcessor extends OperandNodeProcessor<Reference> {
 //	Variable getVariable();
 
 	public ReferenceNodeProcessor(
-			NodeProcessorConfig<WidgetFactory, WidgetFactory> config, 
+			NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 			Context context,
 			java.util.function.BiFunction<EObject, ProgressMonitor, Action> prototypeProvider) {
 		super(config, context, prototypeProvider);

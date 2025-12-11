@@ -11,7 +11,8 @@ import org.nasdanika.graph.Element;
 import org.nasdanika.graph.emf.EObjectNode;
 import org.nasdanika.graph.processor.NodeProcessorConfig;
 import org.nasdanika.graph.processor.Processor;
-import org.nasdanika.graph.processor.ProcessorInfo;
+import org.nasdanika.graph.processor.ProcessorConfig;
+import org.nasdanika.models.app.graph.WidgetFactory;
 
 /**
  * Reflective target to create synchronous {@link BiFunction} processors.
@@ -22,9 +23,9 @@ public class SyncProcessorFactory {
 			type = EObjectNode.class,
 			value = "#target.isOperator(get())")
 	public Object createOperatorProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new OperatorProcessor();
@@ -42,9 +43,9 @@ public class SyncProcessorFactory {
 			type = EObjectNode.class,
 			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Assignment)")
 	public Object createAssignmentProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new AssignmentProcessor();
@@ -54,9 +55,9 @@ public class SyncProcessorFactory {
 			type = EObjectNode.class,
 			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Multiplication)")
 	public Object createMultiplicationProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new MultiplicationProcessor();
@@ -66,9 +67,9 @@ public class SyncProcessorFactory {
 			type = EObjectNode.class,
 			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Literal)")
 	public Object createLiteralProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new LiteralProcessor(); 
@@ -78,9 +79,9 @@ public class SyncProcessorFactory {
 			type = EObjectNode.class,
 			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Variable)")
 	public Object createVariableProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new VariableProcessor();
@@ -90,9 +91,9 @@ public class SyncProcessorFactory {
 			type = EObjectNode.class,
 			value = "get() instanceof T(org.nasdanika.demos.graph.compute.Reference)")
 	public Object createReferenceProcessor(
-		NodeProcessorConfig<?,?> config, 
+		NodeProcessorConfig<WidgetFactory, WidgetFactory, Object> config, 
 		boolean parallel, 
-		BiConsumer<Element,BiConsumer<ProcessorInfo<Object>,ProgressMonitor>> infoProvider,
+		BiConsumer<Element,BiConsumer<ProcessorConfig<WidgetFactory, WidgetFactory, Object>,ProgressMonitor>> infoProvider,
 		Function<ProgressMonitor, Object> next,		
 		ProgressMonitor progressMonitor) {
 		return new ReferenceProcessor();
